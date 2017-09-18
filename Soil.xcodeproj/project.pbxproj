@@ -13,6 +13,9 @@
 		27AF10A81F6E958F00E6301E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27AF10A61F6E958F00E6301E /* Main.storyboard */; };
 		27AF10AA1F6E958F00E6301E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27AF10A91F6E958F00E6301E /* Assets.xcassets */; };
 		27AF10AD1F6E958F00E6301E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27AF10AB1F6E958F00E6301E /* LaunchScreen.storyboard */; };
+		27AF10DC1F6EC16F00E6301E /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27AF10DB1F6EC16F00E6301E /* WebViewController.m */; };
+		27AF10E01F6EC67E00E6301E /* Declaration.html in Resources */ = {isa = PBXBuildFile; fileRef = 27AF10DF1F6EC67E00E6301E /* Declaration.html */; };
+		27AF10E91F6EE3D600E6301E /* AccessoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27AF10E81F6EE3D600E6301E /* AccessoryViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,11 @@
 		27AF10A91F6E958F00E6301E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		27AF10AC1F6E958F00E6301E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		27AF10AE1F6E958F00E6301E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		27AF10DA1F6EC16F00E6301E /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		27AF10DB1F6EC16F00E6301E /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		27AF10DF1F6EC67E00E6301E /* Declaration.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Declaration.html; sourceTree = "<group>"; };
+		27AF10E71F6EE3D600E6301E /* AccessoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccessoryViewController.h; sourceTree = "<group>"; };
+		27AF10E81F6EE3D600E6301E /* AccessoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccessoryViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +50,7 @@
 		27AF10911F6E958F00E6301E = {
 			isa = PBXGroup;
 			children = (
+				27AF10DF1F6EC67E00E6301E /* Declaration.html */,
 				27AF109C1F6E958F00E6301E /* Soil */,
 				27AF109B1F6E958F00E6301E /* Products */,
 			);
@@ -62,6 +71,10 @@
 				27AF10A11F6E958F00E6301E /* AppDelegate.m */,
 				27AF10A31F6E958F00E6301E /* ViewController.h */,
 				27AF10A41F6E958F00E6301E /* ViewController.m */,
+				27AF10E71F6EE3D600E6301E /* AccessoryViewController.h */,
+				27AF10E81F6EE3D600E6301E /* AccessoryViewController.m */,
+				27AF10DA1F6EC16F00E6301E /* WebViewController.h */,
+				27AF10DB1F6EC16F00E6301E /* WebViewController.m */,
 				27AF10A61F6E958F00E6301E /* Main.storyboard */,
 				27AF10A91F6E958F00E6301E /* Assets.xcassets */,
 				27AF10AB1F6E958F00E6301E /* LaunchScreen.storyboard */,
@@ -138,6 +151,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				27AF10AD1F6E958F00E6301E /* LaunchScreen.storyboard in Resources */,
+				27AF10E01F6EC67E00E6301E /* Declaration.html in Resources */,
 				27AF10AA1F6E958F00E6301E /* Assets.xcassets in Resources */,
 				27AF10A81F6E958F00E6301E /* Main.storyboard in Resources */,
 			);
@@ -152,7 +166,9 @@
 			files = (
 				27AF10A51F6E958F00E6301E /* ViewController.m in Sources */,
 				27AF10A21F6E958F00E6301E /* AppDelegate.m in Sources */,
+				27AF10E91F6EE3D600E6301E /* AccessoryViewController.m in Sources */,
 				27AF109F1F6E958F00E6301E /* main.m in Sources */,
+				27AF10DC1F6EC16F00E6301E /* WebViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,6 +289,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Soil/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ekim.Soil;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -284,6 +301,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Soil/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ekim.Soil;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -309,6 +327,7 @@
 				27AF10B31F6E958F00E6301E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
