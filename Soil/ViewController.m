@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import <AFNetworking/AFNetworking.h>
+#import "ResultModel.h"
 
 @interface ViewController () <UITextFieldDelegate>
 
@@ -16,6 +18,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (weak, nonatomic) IBOutlet UIImageView *cloudImageView;
 
+@property (nonatomic, strong) NSMutableArray *dataArray;
+
 @end
 
 @implementation ViewController
@@ -23,7 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    
+    [self setupSubviews];
     [self addObserverForKeyboardWithSelector:@selector(keyboardWillChangeFrameWithNotification:)];
 }
 
@@ -54,7 +58,6 @@
      UIKeyboardIsLocalUserInfoKey = 1;
      }
      */
-    NSLog(@"%@", info);
     CGFloat animationDuration = [info[UIKeyboardAnimationDurationUserInfoKey] floatValue];
     CGRect frameBegin = [info[UIKeyboardFrameBeginUserInfoKey] CGRectValue];
     CGRect frameEnd = [info[UIKeyboardFrameEndUserInfoKey] CGRectValue];
@@ -92,7 +95,7 @@
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    [self.view endEditing:YES];
+    [self.textField resignFirstResponder];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -113,7 +116,50 @@
 }
 
 - (IBAction)searchAction:(id)sender {
+    [self request];
+}
+- (IBAction)changeSourceAction:(id)sender {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"搜索源" message:@"请选择你需要的搜索源" preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    UIAlertAction *item0Action = [UIAlertAction actionWithTitle:@"地址一（bing）" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        NSLog(@"地址一（bing）");
+    }];
+    for (UIAlertAction *action in @[item0Action, cancelAction]) {
+        [alertController addAction:action];
+    }
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    [self performSegueWithIdentifier:@"showResults" sender:nil];
+    return YES;
+}
+
+- (void)request {
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
     
+    NSString *urlString = @"http://yikaotuan.cn/public/index.php";
+    NSDictionary *parameters = @{@"s":@"/index/search/index/title/我的世界/site/pan.baidu.com/page/1"};
+    [manager GET:urlString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary *responseDictionary = responseObject;
+        NSArray *dataArray = responseDictionary[@"data"];
+        if (!self.dataArray) {
+            self.dataArray = [[NSMutableArray alloc] init];
+        }
+        for (NSDictionary *itemDictionary in dataArray) {
+            ResultModel *model = [[ResultModel alloc] init];
+            [model setValuesForKeysWithDictionary:itemDictionary];
+            [self.dataArray addObject:model];
+        }
+        for (ResultModel *model in self.dataArray) {
+            NSLog(@"title:%@\nurl:%@", model.title, model.url);
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@", error);
+    }];
 }
 
 @end

@@ -15,7 +15,7 @@
 		27AF10AD1F6E958F00E6301E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27AF10AB1F6E958F00E6301E /* LaunchScreen.storyboard */; };
 		27AF10DC1F6EC16F00E6301E /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27AF10DB1F6EC16F00E6301E /* WebViewController.m */; };
 		27AF10E01F6EC67E00E6301E /* Declaration.html in Resources */ = {isa = PBXBuildFile; fileRef = 27AF10DF1F6EC67E00E6301E /* Declaration.html */; };
-		27AF10E91F6EE3D600E6301E /* AccessoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27AF10E81F6EE3D600E6301E /* AccessoryViewController.m */; };
+		27AF10EC1F70457900E6301E /* ResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27AF10EB1F70457900E6301E /* ResultModel.m */; };
 		EF0678D1F2B5DF00B2CC1108 /* libPods-Soil.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B766756575FF91322C89858 /* libPods-Soil.a */; };
 /* End PBXBuildFile section */
 
@@ -34,8 +34,8 @@
 		27AF10DA1F6EC16F00E6301E /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		27AF10DB1F6EC16F00E6301E /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		27AF10DF1F6EC67E00E6301E /* Declaration.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Declaration.html; sourceTree = "<group>"; };
-		27AF10E71F6EE3D600E6301E /* AccessoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccessoryViewController.h; sourceTree = "<group>"; };
-		27AF10E81F6EE3D600E6301E /* AccessoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccessoryViewController.m; sourceTree = "<group>"; };
+		27AF10EA1F70457900E6301E /* ResultModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultModel.h; sourceTree = "<group>"; };
+		27AF10EB1F70457900E6301E /* ResultModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultModel.m; sourceTree = "<group>"; };
 		B7EBB1286B6EF5185B41F288 /* Pods-Soil.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Soil.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Soil/Pods-Soil.debug.xcconfig"; sourceTree = "<group>"; };
 		F45B7887C18D1E3CF8723965 /* Pods-Soil.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Soil.release.xcconfig"; path = "Pods/Target Support Files/Pods-Soil/Pods-Soil.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -78,8 +78,8 @@
 				27AF10A11F6E958F00E6301E /* AppDelegate.m */,
 				27AF10A31F6E958F00E6301E /* ViewController.h */,
 				27AF10A41F6E958F00E6301E /* ViewController.m */,
-				27AF10E71F6EE3D600E6301E /* AccessoryViewController.h */,
-				27AF10E81F6EE3D600E6301E /* AccessoryViewController.m */,
+				27AF10EA1F70457900E6301E /* ResultModel.h */,
+				27AF10EB1F70457900E6301E /* ResultModel.m */,
 				27AF10DA1F6EC16F00E6301E /* WebViewController.h */,
 				27AF10DB1F6EC16F00E6301E /* WebViewController.m */,
 				27AF10A61F6E958F00E6301E /* Main.storyboard */,
@@ -240,8 +240,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				27AF10A51F6E958F00E6301E /* ViewController.m in Sources */,
+				27AF10EC1F70457900E6301E /* ResultModel.m in Sources */,
 				27AF10A21F6E958F00E6301E /* AppDelegate.m in Sources */,
-				27AF10E91F6EE3D600E6301E /* AccessoryViewController.m in Sources */,
 				27AF109F1F6E958F00E6301E /* main.m in Sources */,
 				27AF10DC1F6EC16F00E6301E /* WebViewController.m in Sources */,
 			);
