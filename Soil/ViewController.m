@@ -7,8 +7,6 @@
 //
 
 #import "ViewController.h"
-#import <AFNetworking/AFNetworking.h>
-#import "ResultModel.h"
 
 @interface ViewController () <UITextFieldDelegate>
 
@@ -17,8 +15,6 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *stackViewTopConstraint;
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (weak, nonatomic) IBOutlet UIImageView *cloudImageView;
-
-@property (nonatomic, strong) NSMutableArray *dataArray;
 
 @end
 
@@ -116,7 +112,6 @@
 }
 
 - (IBAction)searchAction:(id)sender {
-    [self request];
 }
 - (IBAction)changeSourceAction:(id)sender {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"搜索源" message:@"请选择你需要的搜索源" preferredStyle:UIAlertControllerStyleActionSheet];
@@ -136,30 +131,6 @@
     return YES;
 }
 
-- (void)request {
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    manager.responseSerializer = [AFJSONResponseSerializer serializer];
-    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
-    
-    NSString *urlString = @"http://yikaotuan.cn/public/index.php";
-    NSDictionary *parameters = @{@"s":@"/index/search/index/title/我的世界/site/pan.baidu.com/page/1"};
-    [manager GET:urlString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSDictionary *responseDictionary = responseObject;
-        NSArray *dataArray = responseDictionary[@"data"];
-        if (!self.dataArray) {
-            self.dataArray = [[NSMutableArray alloc] init];
-        }
-        for (NSDictionary *itemDictionary in dataArray) {
-            ResultModel *model = [[ResultModel alloc] init];
-            [model setValuesForKeysWithDictionary:itemDictionary];
-            [self.dataArray addObject:model];
-        }
-        for (ResultModel *model in self.dataArray) {
-            NSLog(@"title:%@\nurl:%@", model.title, model.url);
-        }
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"%@", error);
-    }];
-}
+
 
 @end

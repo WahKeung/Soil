@@ -28,10 +28,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"Declaration" ofType:@"html"];
-    NSString *htmlString = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
-    [self.webView loadHTMLString:htmlString baseURL:nil];
+//    NSString *path = [[NSBundle mainBundle] pathForResource:@"Declaration" ofType:@"html"];
+//    NSString *htmlString = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+//    [self.webView loadHTMLString:htmlString baseURL:nil];
     
+    NSURL *url = [NSURL URLWithString:self.urlString];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];[self.webView loadRequest:request];
 }
 
 - (void)didReceiveMemoryWarning {
