@@ -8,6 +8,8 @@
 
 #import "MoreTableViewController.h"
 @import GoogleMobileAds;
+#import "AppDelegate.h"
+#import "KeywordEntity+CoreDataClass.h"
 
 @interface MoreTableViewController ()
 @property (weak, nonatomic) IBOutlet GADBannerView *bannerView;
@@ -37,6 +39,24 @@
     GADRequest *request = [GADRequest request];
     request.testDevices = @[@"655075e7bea6a2c0298f220f9fa5879faaa67139"];
     [self.bannerView loadRequest:request];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section==0 && indexPath.row==0) {
+        [self deleteAllHistory];
+        [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    }
+}
+
+- (void)deleteAllHistory {
+    AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    NSManagedObjectContext *viewContext = delegate.persistentContainer.viewContext;
+    NSFetchRequest *request = [KeywordEntity fetchRequest];
+    NSArray<KeywordEntity *> *results = [viewContext executeFetchRequest:request error:nil];
+    [results enumerateObjectsUsingBlock:^(KeywordEntity * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [viewContext deleteObject:obj];
+    }];
+    [delegate saveContext];
 }
 
 @end

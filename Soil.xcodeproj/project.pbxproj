@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		272866631F717E2000586AD3 /* MoreTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 272866621F717E2000586AD3 /* MoreTableViewController.m */; };
+		2768F8C71F740E0900C44874 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2768F8C61F740E0800C44874 /* MessageUI.framework */; };
+		278532C11F74003500AEE4F4 /* KeywordEntity+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 278532BE1F74003500AEE4F4 /* KeywordEntity+CoreDataClass.m */; };
+		278532C21F74003500AEE4F4 /* KeywordEntity+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 278532C01F74003500AEE4F4 /* KeywordEntity+CoreDataProperties.m */; };
 		27AF109F1F6E958F00E6301E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 27AF109E1F6E958F00E6301E /* main.m */; };
 		27AF10A21F6E958F00E6301E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 27AF10A11F6E958F00E6301E /* AppDelegate.m */; };
 		27AF10A51F6E958F00E6301E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27AF10A41F6E958F00E6301E /* ViewController.m */; };
@@ -17,6 +20,8 @@
 		27AF10DC1F6EC16F00E6301E /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27AF10DB1F6EC16F00E6301E /* WebViewController.m */; };
 		27AF10E01F6EC67E00E6301E /* Declaration.html in Resources */ = {isa = PBXBuildFile; fileRef = 27AF10DF1F6EC67E00E6301E /* Declaration.html */; };
 		27AF10EC1F70457900E6301E /* ResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27AF10EB1F70457900E6301E /* ResultModel.m */; };
+		27B937961F73F15500794C38 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27B937951F73F15500794C38 /* CoreData.framework */; };
+		27B937BE1F73F1D000794C38 /* Soil.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 27B937BC1F73F1D000794C38 /* Soil.xcdatamodeld */; };
 		27BD7A8E1F72728700F346F5 /* HistoryCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 27BD7A8D1F72728700F346F5 /* HistoryCollectionViewCell.m */; };
 		27D4C0FC1F70B61A00069180 /* ResultsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D4C0FB1F70B61A00069180 /* ResultsTableViewController.m */; };
 		27D4C0FF1F70B67E00069180 /* ResultTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D4C0FE1F70B67E00069180 /* ResultTableViewCell.m */; };
@@ -27,6 +32,11 @@
 		1B766756575FF91322C89858 /* libPods-Soil.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Soil.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		272866611F717E2000586AD3 /* MoreTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreTableViewController.h; sourceTree = "<group>"; };
 		272866621F717E2000586AD3 /* MoreTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreTableViewController.m; sourceTree = "<group>"; };
+		2768F8C61F740E0800C44874 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		278532BD1F74003500AEE4F4 /* KeywordEntity+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KeywordEntity+CoreDataClass.h"; sourceTree = "<group>"; };
+		278532BE1F74003500AEE4F4 /* KeywordEntity+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "KeywordEntity+CoreDataClass.m"; sourceTree = "<group>"; };
+		278532BF1F74003500AEE4F4 /* KeywordEntity+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KeywordEntity+CoreDataProperties.h"; sourceTree = "<group>"; };
+		278532C01F74003500AEE4F4 /* KeywordEntity+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "KeywordEntity+CoreDataProperties.m"; sourceTree = "<group>"; };
 		27AF109A1F6E958F00E6301E /* Soil.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Soil.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27AF109E1F6E958F00E6301E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		27AF10A01F6E958F00E6301E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -42,6 +52,8 @@
 		27AF10DF1F6EC67E00E6301E /* Declaration.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Declaration.html; sourceTree = "<group>"; };
 		27AF10EA1F70457900E6301E /* ResultModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultModel.h; sourceTree = "<group>"; };
 		27AF10EB1F70457900E6301E /* ResultModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultModel.m; sourceTree = "<group>"; };
+		27B937951F73F15500794C38 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		27B937BD1F73F1D000794C38 /* Soil.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Soil.xcdatamodel; sourceTree = "<group>"; };
 		27BD7A8C1F72728700F346F5 /* HistoryCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryCollectionViewCell.h; sourceTree = "<group>"; };
 		27BD7A8D1F72728700F346F5 /* HistoryCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryCollectionViewCell.m; sourceTree = "<group>"; };
 		27D4C0FA1F70B61A00069180 /* ResultsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultsTableViewController.h; sourceTree = "<group>"; };
@@ -57,6 +69,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2768F8C71F740E0900C44874 /* MessageUI.framework in Frameworks */,
+				27B937961F73F15500794C38 /* CoreData.framework in Frameworks */,
 				EF0678D1F2B5DF00B2CC1108 /* libPods-Soil.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -67,6 +81,10 @@
 		27AF10911F6E958F00E6301E = {
 			isa = PBXGroup;
 			children = (
+				278532BD1F74003500AEE4F4 /* KeywordEntity+CoreDataClass.h */,
+				278532BE1F74003500AEE4F4 /* KeywordEntity+CoreDataClass.m */,
+				278532BF1F74003500AEE4F4 /* KeywordEntity+CoreDataProperties.h */,
+				278532C01F74003500AEE4F4 /* KeywordEntity+CoreDataProperties.m */,
 				27AF10DF1F6EC67E00E6301E /* Declaration.html */,
 				27AF109C1F6E958F00E6301E /* Soil */,
 				27AF109B1F6E958F00E6301E /* Products */,
@@ -106,6 +124,7 @@
 				27AF10A91F6E958F00E6301E /* Assets.xcassets */,
 				27AF10AB1F6E958F00E6301E /* LaunchScreen.storyboard */,
 				27AF10AE1F6E958F00E6301E /* Info.plist */,
+				27B937BC1F73F1D000794C38 /* Soil.xcdatamodeld */,
 				27AF109D1F6E958F00E6301E /* Supporting Files */,
 			);
 			path = Soil;
@@ -122,6 +141,8 @@
 		3BAD417160AAB3D844D03562 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2768F8C61F740E0800C44874 /* MessageUI.framework */,
+				27B937951F73F15500794C38 /* CoreData.framework */,
 				1B766756575FF91322C89858 /* libPods-Soil.a */,
 			);
 			name = Frameworks;
@@ -265,11 +286,14 @@
 			files = (
 				27AF10A51F6E958F00E6301E /* ViewController.m in Sources */,
 				27AF10EC1F70457900E6301E /* ResultModel.m in Sources */,
+				27B937BE1F73F1D000794C38 /* Soil.xcdatamodeld in Sources */,
 				27D4C0FC1F70B61A00069180 /* ResultsTableViewController.m in Sources */,
 				27BD7A8E1F72728700F346F5 /* HistoryCollectionViewCell.m in Sources */,
 				27AF10A21F6E958F00E6301E /* AppDelegate.m in Sources */,
+				278532C21F74003500AEE4F4 /* KeywordEntity+CoreDataProperties.m in Sources */,
 				27AF109F1F6E958F00E6301E /* main.m in Sources */,
 				27D4C0FF1F70B67E00069180 /* ResultTableViewCell.m in Sources */,
+				278532C11F74003500AEE4F4 /* KeywordEntity+CoreDataClass.m in Sources */,
 				272866631F717E2000586AD3 /* MoreTableViewController.m in Sources */,
 				27AF10DC1F6EC16F00E6301E /* WebViewController.m in Sources */,
 			);
@@ -442,6 +466,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		27B937BC1F73F1D000794C38 /* Soil.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				27B937BD1F73F1D000794C38 /* Soil.xcdatamodel */,
+			);
+			currentVersion = 27B937BD1F73F1D000794C38 /* Soil.xcdatamodel */;
+			path = Soil.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 27AF10921F6E958F00E6301E /* Project object */;
 }

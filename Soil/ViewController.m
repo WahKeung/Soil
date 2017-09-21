@@ -9,6 +9,8 @@
 #import "ViewController.h"
 @import GoogleMobileAds;
 #import "HistoryCollectionViewCell.h"
+#import "KeywordEntity+CoreDataClass.h"
+#import "AppDelegate.h"
 
 @interface ViewController () <UITextFieldDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
@@ -18,11 +20,12 @@
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (weak, nonatomic) IBOutlet UIImageView *cloudImageView;
 @property (weak, nonatomic) IBOutlet UIButton *siteButton;
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @property (nonatomic, strong) NSString *selectedSite;
 
 @property (weak, nonatomic) IBOutlet GADBannerView *bannerView;
-@property (nonatomic, strong) NSArray *historyArray;
+@property (nonatomic, strong) NSArray<KeywordEntity *> *historyArray;
 
 
 @end
@@ -32,18 +35,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+[self readKeywords];
     
     // Replace this ad unit ID with your own ad unit ID.
-    self.historyArray = @[@"sdfsdf",
-                          @"as",
-                          @"asdfadg",
-                          @"gdsgfgdfg",
-                          @"asdf",
-                          @"dsfag",
-                          @"fga",
-                          @"gad",
-                          @"sdfaga"];
-    
 #ifdef DEBUG
     // Debug 模式的代码...
     self.bannerView.adUnitID = @"ca-app-pub-3940256099942544/6300978111";
@@ -146,6 +140,7 @@
 
 - (IBAction)searchAction:(id)sender {
     [self performSegueWithIdentifier:@"segue.show.ResultsTableViewController" sender:nil];
+    [self insertKeyword:self.textField.text];
 }
 - (IBAction)changeSiteAction:(id)sender {
     NSDictionary *sites = @{@"百度网盘":@"pan.baidu.com",
@@ -182,18 +177,25 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
     [self performSegueWithIdentifier:@"segue.show.ResultsTableViewController" sender:nil];
+    [self insertKeyword:self.textField.text];
     return YES;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    UIViewController *destinationController = segue.destinationViewController;
-    [destinationController setValue:self.textField.text forKey:@"keyword"];
-    [destinationController setValue:self.selectedSite forKey:@"site"];
+    if ([segue.identifier isEqualToString:@"segue.show.ResultsTableViewController"]) {
+        UIViewController *destinationController = segue.destinationViewController;
+        [destinationController setValue:sender?sender:self.textField.text forKey:@"keyword"];
+        [destinationController setValue:self.selectedSite forKey:@"site"];
+    }
 }
 
 #pragma mark - UICollectionViewDelegate
 
-
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    [self.textField resignFirstResponder];
+    KeywordEntity *entity = self.historyArray[indexPath.item];
+    [self performSegueWithIdentifier:@"segue.show.ResultsTableViewController" sender:entity.value];
+}
 
 #pragma mark - UICollectionViewDataSource
 
@@ -203,7 +205,7 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     HistoryCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"collectionview.cell" forIndexPath:indexPath];
-    NSString *title = self.historyArray[indexPath.item];
+    NSString *title = self.historyArray[indexPath.item].value;
     cell.itemTitleLabel.text = title;
     return cell;
 }
@@ -211,9 +213,60 @@
 #pragma mark - UICollectionViewDelegateFlowLayout
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *title = self.historyArray[indexPath.item];
+    NSString *title = self.historyArray[indexPath.item].value;
     CGSize size = [title boundingRectWithSize:CGSizeMake(collectionView.bounds.size.width, 30) options:NSStringDrawingUsesFontLeading|NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15]} context:nil].size;
     return CGSizeMake(size.width+8, 30);
+}
+
+#pragma mark - core data
+
+- (void)insertKeyword:(NSString *)keyword {
+    AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    NSManagedObjectContext *viewContext = appDelegate.persistentContainer.viewContext;
+    
+    NSFetchRequest *request = [KeywordEntity fetchRequest];
+    NSArray<KeywordEntity *> *results = [viewContext executeFetchRequest:request error:nil];
+    if (results.count<1) {
+        KeywordEntity *keywordEntity = [NSEntityDescription insertNewObjectForEntityForName:@"KeywordEntity" inManagedObjectContext:viewContext];
+        keywordEntity.value = keyword;
+        [appDelegate saveContext];
+        [self readKeywords];
+    } else {
+        
+        for (KeywordEntity *entity in results) {
+            if ([keyword isEqualToString:entity.value]) {
+                return ;
+            }
+        }
+        KeywordEntity *keywordEntity = [NSEntityDescription insertNewObjectForEntityForName:@"KeywordEntity" inManagedObjectContext:viewContext];
+        keywordEntity.value = keyword;
+        [appDelegate saveContext];
+        [self readKeywords];
+    }
+}
+
+- (void)readKeywords {
+    AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    NSManagedObjectContext *viewContext = appDelegate.persistentContainer.viewContext;
+    NSFetchRequest *request = [KeywordEntity fetchRequest];
+    NSArray *results = [viewContext executeFetchRequest:request error:nil];
+    self.historyArray = [results reverseObjectEnumerator].allObjects;
+    for (KeywordEntity *entity in self.historyArray) {
+        NSLog(@"%@", entity.value);
+    }
+    [self.collectionView reloadData];
+}
+
+- (void)deleteAllKeywords {
+    AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    NSManagedObjectContext *viewContext = appDelegate.persistentContainer.viewContext;
+    NSFetchRequest *request = [KeywordEntity fetchRequest];
+    NSArray<KeywordEntity *> *results = [viewContext executeFetchRequest:request error:nil];
+    [results enumerateObjectsUsingBlock:^(KeywordEntity * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [viewContext deleteObject:obj];
+    }];
+    [appDelegate saveContext];
+    [self readKeywords];
 }
 
 @end
