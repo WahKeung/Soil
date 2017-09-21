@@ -10,4 +10,7 @@
 
 @interface ResultsTableViewController : UITableViewController
 
+@property (nonatomic, strong) NSString *keyword;
+@property (nonatomic, strong) NSString *site;
+
 @end

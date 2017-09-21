@@ -7,5 +7,6 @@ target 'Soil' do
 
   # Pods for Soil
   pod 'AFNetworking', '~> 3.0'
+  pod 'Google-Mobile-Ads-SDK'
 
 end

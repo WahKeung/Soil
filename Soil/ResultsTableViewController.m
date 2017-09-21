@@ -23,7 +23,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self request];
+    [self requestDataWithKeyword:self.keyword site:self.site pageIndex:1];
+    self.navigationItem.title = [NSString stringWithFormat:@"\"%@\"结果", self.keyword];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -57,16 +58,26 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     ResultModel *model = self.dataArray[indexPath.row];
-    [self showWebControllerWithUrlString:model.url];
+    [self showWebControllerWithUrlString:model.url andTitle:model.title];
 }
 
-- (void)request {
+- (void)showWebControllerWithUrlString:(NSString *)urlString andTitle:(NSString *)title {
+    
+    UIStoryboard *mainStryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    WebViewController *webController = [mainStryboard instantiateViewControllerWithIdentifier:@"WebViewController"];
+    webController.urlString = urlString;
+    webController.title = title;
+    [self showViewController:webController sender:nil];
+}
+
+- (void)requestDataWithKeyword:(NSString *)keyword site:(NSString *)site pageIndex:(NSInteger)pageIndex {
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
     
-    NSString *urlString = @"http://yikaotuan.cn/public/index.php";
-    NSDictionary *parameters = @{@"s":@"/index/search/index/title/我的世界/site/pan.baidu.com/page/1"};
+    static NSString *urlString = @"http://yikaotuan.cn/public/index.php";
+    NSString *value = [NSString stringWithFormat:@"/index/search/index/title/%@/site/%@/page/%zd", keyword, site, pageIndex];
+    NSDictionary *parameters = @{@"s":value};
     [manager GET:urlString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary *responseDictionary = responseObject;
         NSArray *dataArray = responseDictionary[@"data"];
@@ -82,14 +93,6 @@
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@", error);
     }];
-}
-
-- (void)showWebControllerWithUrlString:(NSString *)urlString {
-    
-    UIStoryboard *mainStryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    WebViewController *webController = [mainStryboard instantiateViewControllerWithIdentifier:@"WebViewController"];
-    webController.urlString = urlString;
-    [self showViewController:webController sender:nil];
 }
 
 @end

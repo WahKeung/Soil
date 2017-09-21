@@ -7,14 +7,23 @@
 //
 
 #import "ViewController.h"
+@import GoogleMobileAds;
+#import "HistoryCollectionViewCell.h"
 
-@interface ViewController () <UITextFieldDelegate>
+@interface ViewController () <UITextFieldDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property (weak, nonatomic) IBOutlet UIButton *searchButton;
 @property (weak, nonatomic) IBOutlet UIStackView *stackView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *stackViewTopConstraint;
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (weak, nonatomic) IBOutlet UIImageView *cloudImageView;
+@property (weak, nonatomic) IBOutlet UIButton *siteButton;
+
+@property (nonatomic, strong) NSString *selectedSite;
+
+@property (weak, nonatomic) IBOutlet GADBannerView *bannerView;
+@property (nonatomic, strong) NSArray *historyArray;
+
 
 @end
 
@@ -23,6 +32,32 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    // Replace this ad unit ID with your own ad unit ID.
+    self.historyArray = @[@"sdfsdf",
+                          @"as",
+                          @"asdfadg",
+                          @"gdsgfgdfg",
+                          @"asdf",
+                          @"dsfag",
+                          @"fga",
+                          @"gad",
+                          @"sdfaga"];
+    
+#ifdef DEBUG
+    // Debug 模式的代码...
+    self.bannerView.adUnitID = @"ca-app-pub-3940256099942544/6300978111";
+#else
+    // Release 模式的代码...
+    self.bannerView.adUnitID = @"ca-app-pub-3925127038024110/3367115478";
+#endif
+    self.bannerView.adSize = kGADAdSizeBanner;
+    self.bannerView.rootViewController = self;
+    GADRequest *request = [GADRequest request];
+    request.testDevices = @[@"655075e7bea6a2c0298f220f9fa5879faaa67139"];
+    [self.bannerView loadRequest:request];
+    
+    self.selectedSite = @"pan.baidu.com";
     [self setupSubviews];
     [self addObserverForKeyboardWithSelector:@selector(keyboardWillChangeFrameWithNotification:)];
 }
@@ -58,17 +93,15 @@
     CGRect frameBegin = [info[UIKeyboardFrameBeginUserInfoKey] CGRectValue];
     CGRect frameEnd = [info[UIKeyboardFrameEndUserInfoKey] CGRectValue];
     
-    CGFloat heightDiff = CGRectGetMinY(frameEnd)-CGRectGetMinY(frameBegin);
-    
-    if (heightDiff<0) {
-        [self activateSearchBar];
-    } else {
-        [self unactivateSearchBar];
+    if (CGRectGetMinY(frameEnd)<CGRectGetHeight([UIScreen mainScreen].bounds) && CGRectGetMinY(frameBegin)>=CGRectGetHeight([UIScreen mainScreen].bounds)) {
+        [self activateSearchBarWithDuration:animationDuration];
+    } else if (CGRectGetMinY(frameEnd)==CGRectGetHeight([UIScreen mainScreen].bounds)) {
+        [self unactivateSearchBarWithDuration:animationDuration];
     }
     
 }
 
-- (void)activateSearchBar {
+- (void)activateSearchBarWithDuration:(CGFloat)duration {
     CGRect textFieldFrameOnView = [self.textField.superview convertRect:self.textField.frame toView:self.view];
     CGFloat minY = CGRectGetMinY(textFieldFrameOnView);
     CGFloat height = CGRectGetHeight(textFieldFrameOnView);
@@ -82,7 +115,7 @@
     }];
 }
 
-- (void)unactivateSearchBar {
+- (void)unactivateSearchBarWithDuration:(CGFloat)duration {
     [UIView animateWithDuration:0.25 animations:^{
         self.stackView.transform = CGAffineTransformIdentity;
         self.cloudImageView.transform = CGAffineTransformIdentity;
@@ -112,7 +145,28 @@
 }
 
 - (IBAction)searchAction:(id)sender {
+    [self performSegueWithIdentifier:@"segue.show.ResultsTableViewController" sender:nil];
 }
+- (IBAction)changeSiteAction:(id)sender {
+    NSDictionary *sites = @{@"百度网盘":@"pan.baidu.com",
+                            @"115网盘":@"115.com",
+                            @"微盘":@"vdisk.weibo.com"};
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"选择网盘" message:@"请选择你需要的网盘" preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    [alertController addAction:cancelAction];
+    
+    [sites enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+        NSString *title = [NSString stringWithFormat:@"%@（%@）", key, obj];
+        UIAlertAction *action = [UIAlertAction actionWithTitle:title style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            self.selectedSite = obj;
+            [self.siteButton setTitle:title forState:UIControlStateNormal];
+        }];
+        [alertController addAction:action];
+    }];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
 - (IBAction)changeSourceAction:(id)sender {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"搜索源" message:@"请选择你需要的搜索源" preferredStyle:UIAlertControllerStyleActionSheet];
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
@@ -127,10 +181,39 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
-    [self performSegueWithIdentifier:@"showResults" sender:nil];
+    [self performSegueWithIdentifier:@"segue.show.ResultsTableViewController" sender:nil];
     return YES;
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    UIViewController *destinationController = segue.destinationViewController;
+    [destinationController setValue:self.textField.text forKey:@"keyword"];
+    [destinationController setValue:self.selectedSite forKey:@"site"];
+}
 
+#pragma mark - UICollectionViewDelegate
+
+
+
+#pragma mark - UICollectionViewDataSource
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return self.historyArray.count;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    HistoryCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"collectionview.cell" forIndexPath:indexPath];
+    NSString *title = self.historyArray[indexPath.item];
+    cell.itemTitleLabel.text = title;
+    return cell;
+}
+
+#pragma mark - UICollectionViewDelegateFlowLayout
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *title = self.historyArray[indexPath.item];
+    CGSize size = [title boundingRectWithSize:CGSizeMake(collectionView.bounds.size.width, 30) options:NSStringDrawingUsesFontLeading|NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15]} context:nil].size;
+    return CGSizeMake(size.width+8, 30);
+}
 
 @end

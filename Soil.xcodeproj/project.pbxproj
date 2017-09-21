@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		272866631F717E2000586AD3 /* MoreTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 272866621F717E2000586AD3 /* MoreTableViewController.m */; };
 		27AF109F1F6E958F00E6301E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 27AF109E1F6E958F00E6301E /* main.m */; };
 		27AF10A21F6E958F00E6301E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 27AF10A11F6E958F00E6301E /* AppDelegate.m */; };
 		27AF10A51F6E958F00E6301E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27AF10A41F6E958F00E6301E /* ViewController.m */; };
@@ -16,6 +17,7 @@
 		27AF10DC1F6EC16F00E6301E /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27AF10DB1F6EC16F00E6301E /* WebViewController.m */; };
 		27AF10E01F6EC67E00E6301E /* Declaration.html in Resources */ = {isa = PBXBuildFile; fileRef = 27AF10DF1F6EC67E00E6301E /* Declaration.html */; };
 		27AF10EC1F70457900E6301E /* ResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27AF10EB1F70457900E6301E /* ResultModel.m */; };
+		27BD7A8E1F72728700F346F5 /* HistoryCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 27BD7A8D1F72728700F346F5 /* HistoryCollectionViewCell.m */; };
 		27D4C0FC1F70B61A00069180 /* ResultsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D4C0FB1F70B61A00069180 /* ResultsTableViewController.m */; };
 		27D4C0FF1F70B67E00069180 /* ResultTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D4C0FE1F70B67E00069180 /* ResultTableViewCell.m */; };
 		EF0678D1F2B5DF00B2CC1108 /* libPods-Soil.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B766756575FF91322C89858 /* libPods-Soil.a */; };
@@ -23,6 +25,8 @@
 
 /* Begin PBXFileReference section */
 		1B766756575FF91322C89858 /* libPods-Soil.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Soil.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		272866611F717E2000586AD3 /* MoreTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreTableViewController.h; sourceTree = "<group>"; };
+		272866621F717E2000586AD3 /* MoreTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreTableViewController.m; sourceTree = "<group>"; };
 		27AF109A1F6E958F00E6301E /* Soil.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Soil.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27AF109E1F6E958F00E6301E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		27AF10A01F6E958F00E6301E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -38,6 +42,8 @@
 		27AF10DF1F6EC67E00E6301E /* Declaration.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Declaration.html; sourceTree = "<group>"; };
 		27AF10EA1F70457900E6301E /* ResultModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultModel.h; sourceTree = "<group>"; };
 		27AF10EB1F70457900E6301E /* ResultModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultModel.m; sourceTree = "<group>"; };
+		27BD7A8C1F72728700F346F5 /* HistoryCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryCollectionViewCell.h; sourceTree = "<group>"; };
+		27BD7A8D1F72728700F346F5 /* HistoryCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryCollectionViewCell.m; sourceTree = "<group>"; };
 		27D4C0FA1F70B61A00069180 /* ResultsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultsTableViewController.h; sourceTree = "<group>"; };
 		27D4C0FB1F70B61A00069180 /* ResultsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultsTableViewController.m; sourceTree = "<group>"; };
 		27D4C0FD1F70B67E00069180 /* ResultTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultTableViewCell.h; sourceTree = "<group>"; };
@@ -92,6 +98,10 @@
 				27AF10DB1F6EC16F00E6301E /* WebViewController.m */,
 				27D4C0FD1F70B67E00069180 /* ResultTableViewCell.h */,
 				27D4C0FE1F70B67E00069180 /* ResultTableViewCell.m */,
+				27BD7A8C1F72728700F346F5 /* HistoryCollectionViewCell.h */,
+				27BD7A8D1F72728700F346F5 /* HistoryCollectionViewCell.m */,
+				272866611F717E2000586AD3 /* MoreTableViewController.h */,
+				272866621F717E2000586AD3 /* MoreTableViewController.m */,
 				27AF10A61F6E958F00E6301E /* Main.storyboard */,
 				27AF10A91F6E958F00E6301E /* Assets.xcassets */,
 				27AF10AB1F6E958F00E6301E /* LaunchScreen.storyboard */,
@@ -160,7 +170,8 @@
 				TargetAttributes = {
 					27AF10991F6E958F00E6301E = {
 						CreatedOnToolsVersion = 8.3.3;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = R99GVVPKY2;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -255,9 +266,11 @@
 				27AF10A51F6E958F00E6301E /* ViewController.m in Sources */,
 				27AF10EC1F70457900E6301E /* ResultModel.m in Sources */,
 				27D4C0FC1F70B61A00069180 /* ResultsTableViewController.m in Sources */,
+				27BD7A8E1F72728700F346F5 /* HistoryCollectionViewCell.m in Sources */,
 				27AF10A21F6E958F00E6301E /* AppDelegate.m in Sources */,
 				27AF109F1F6E958F00E6301E /* main.m in Sources */,
 				27D4C0FF1F70B67E00069180 /* ResultTableViewCell.m in Sources */,
+				272866631F717E2000586AD3 /* MoreTableViewController.m in Sources */,
 				27AF10DC1F6EC16F00E6301E /* WebViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -379,11 +392,14 @@
 			baseConfigurationReference = B7EBB1286B6EF5185B41F288 /* Pods-Soil.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = R99GVVPKY2;
 				INFOPLIST_FILE = Soil/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ekim.Soil;
+				PRODUCT_BUNDLE_IDENTIFIER = com.appformike.6432262514;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "0953a917-251c-442b-9e87-2c8301e5dd3e";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development com.appformike.6432262514";
 			};
 			name = Debug;
 		};
@@ -392,11 +408,15 @@
 			baseConfigurationReference = F45B7887C18D1E3CF8723965 /* Pods-Soil.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = R99GVVPKY2;
 				INFOPLIST_FILE = Soil/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ekim.Soil;
+				PRODUCT_BUNDLE_IDENTIFIER = com.appformike.6432262514;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "712eef39-a46c-4f6a-bced-f6f1270097bf";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.appformike.6432262514";
 			};
 			name = Release;
 		};
