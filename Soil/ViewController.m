@@ -102,8 +102,12 @@
     CGFloat top = (44-height)/2;
     CGFloat diff = minY-top;
     
+    CGRect statusBarFrame = [UIApplication sharedApplication].statusBarFrame;
+    CGRect navigationBarFrame = self.navigationController.navigationBar.frame;
+    CGFloat barHeight = CGRectGetHeight(statusBarFrame)+CGRectGetHeight(navigationBarFrame);
+    
     [UIView animateWithDuration:0.25 animations:^{
-        self.stackView.transform = CGAffineTransformMakeTranslation(0, -diff+64);
+        self.stackView.transform = CGAffineTransformMakeTranslation(0, -diff+barHeight);
         self.cloudImageView.transform = CGAffineTransformMakeTranslation(0, -diff);
         [self.view layoutIfNeeded];
     }];

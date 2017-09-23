@@ -424,6 +424,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "0953a917-251c-442b-9e87-2c8301e5dd3e";
 				PROVISIONING_PROFILE_SPECIFIER = "match Development com.appformike.6432262514";
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -441,6 +442,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "712eef39-a46c-4f6a-bced-f6f1270097bf";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.appformike.6432262514";
+				SDKROOT = iphoneos;
 			};
 			name = Release;
 		};
