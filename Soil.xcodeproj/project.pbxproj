@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		272866631F717E2000586AD3 /* MoreTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 272866621F717E2000586AD3 /* MoreTableViewController.m */; };
+		2747A2F71F76544C00F31979 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2747A2F61F76544C00F31979 /* StoreKit.framework */; };
 		2768F8C71F740E0900C44874 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2768F8C61F740E0800C44874 /* MessageUI.framework */; };
 		278532C11F74003500AEE4F4 /* KeywordEntity+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 278532BE1F74003500AEE4F4 /* KeywordEntity+CoreDataClass.m */; };
 		278532C21F74003500AEE4F4 /* KeywordEntity+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 278532C01F74003500AEE4F4 /* KeywordEntity+CoreDataProperties.m */; };
@@ -32,6 +33,7 @@
 		1B766756575FF91322C89858 /* libPods-Soil.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Soil.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		272866611F717E2000586AD3 /* MoreTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreTableViewController.h; sourceTree = "<group>"; };
 		272866621F717E2000586AD3 /* MoreTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreTableViewController.m; sourceTree = "<group>"; };
+		2747A2F61F76544C00F31979 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		2768F8C61F740E0800C44874 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		278532BD1F74003500AEE4F4 /* KeywordEntity+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KeywordEntity+CoreDataClass.h"; sourceTree = "<group>"; };
 		278532BE1F74003500AEE4F4 /* KeywordEntity+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "KeywordEntity+CoreDataClass.m"; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2747A2F71F76544C00F31979 /* StoreKit.framework in Frameworks */,
 				2768F8C71F740E0900C44874 /* MessageUI.framework in Frameworks */,
 				27B937961F73F15500794C38 /* CoreData.framework in Frameworks */,
 				EF0678D1F2B5DF00B2CC1108 /* libPods-Soil.a in Frameworks */,
@@ -141,6 +144,7 @@
 		3BAD417160AAB3D844D03562 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2747A2F61F76544C00F31979 /* StoreKit.framework */,
 				2768F8C61F740E0800C44874 /* MessageUI.framework */,
 				27B937951F73F15500794C38 /* CoreData.framework */,
 				1B766756575FF91322C89858 /* libPods-Soil.a */,
@@ -186,7 +190,7 @@
 		27AF10921F6E958F00E6301E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = Mike;
 				TargetAttributes = {
 					27AF10991F6E958F00E6301E = {
@@ -331,7 +335,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -339,7 +345,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -379,7 +389,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -387,7 +399,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
