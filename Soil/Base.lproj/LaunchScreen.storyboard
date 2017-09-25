@@ -1,7 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -14,9 +18,45 @@
                         <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BES-Y9-PUn">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="uZj-gG-FWe">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="extraLight"/>
+                            </visualEffectView>
+                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g7H-wA-eUz">
+                                <rect key="frame" x="0.0" y="729" width="375" height="83"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <tabBarItem title="网盘搜索" image="TabBar-Item0" id="4m1-Xo-Hgy"/>
+                                    <tabBarItem title="更多" image="TabBar-Item1" id="7IX-G1-BHO"/>
+                                </items>
+                            </tabBar>
+                            <navigationBar contentMode="scaleToFill" largeTitles="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ane-Kb-TH8">
+                                <rect key="frame" x="0.0" y="44" width="375" height="96"/>
+                                <items>
+                                    <navigationItem id="O7J-xQ-JAm"/>
+                                </items>
+                            </navigationBar>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="BES-Y9-PUn" secondAttribute="trailing" id="4pZ-db-zdP"/>
+                            <constraint firstItem="g7H-wA-eUz" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="KLw-bL-J1j"/>
+                            <constraint firstAttribute="bottom" secondItem="g7H-wA-eUz" secondAttribute="bottom" id="Qh2-7S-WkY"/>
+                            <constraint firstItem="Ane-Kb-TH8" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" id="U3C-sZ-fvi"/>
+                            <constraint firstAttribute="trailing" secondItem="Ane-Kb-TH8" secondAttribute="trailing" id="UI0-jV-IIQ"/>
+                            <constraint firstItem="Ane-Kb-TH8" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="dNg-6H-ayP"/>
+                            <constraint firstItem="BES-Y9-PUn" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="jQ8-tI-PBi"/>
+                            <constraint firstItem="Ane-Kb-TH8" firstAttribute="top" secondItem="BES-Y9-PUn" secondAttribute="bottom" id="lGy-2j-0Sr"/>
+                            <constraint firstItem="BES-Y9-PUn" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="pdW-LV-2JY"/>
+                            <constraint firstAttribute="trailing" secondItem="g7H-wA-eUz" secondAttribute="trailing" id="xPf-Xy-Llh"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -24,4 +64,8 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="TabBar-Item0" width="31" height="25"/>
+        <image name="TabBar-Item1" width="31" height="25"/>
+    </resources>
 </document>
