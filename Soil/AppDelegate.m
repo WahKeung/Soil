@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 @import GoogleMobileAds;
+#import "MobClick+Configration.h"
 
 @interface AppDelegate ()
 
@@ -19,6 +20,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     [GADMobileAds configureWithApplicationID:@"ca-app-pub-3925127038024110~6432262514"];
+    [MobClick startServiceWithAppKey:@""];
     return YES;
 }
 

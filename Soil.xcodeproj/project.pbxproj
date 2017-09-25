@@ -10,6 +10,7 @@
 		272866631F717E2000586AD3 /* MoreTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 272866621F717E2000586AD3 /* MoreTableViewController.m */; };
 		2747A2F71F76544C00F31979 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2747A2F61F76544C00F31979 /* StoreKit.framework */; };
 		2768F8C71F740E0900C44874 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2768F8C61F740E0800C44874 /* MessageUI.framework */; };
+		277E96261F790367004D5E7B /* MobClick+Configration.m in Sources */ = {isa = PBXBuildFile; fileRef = 277E96251F790367004D5E7B /* MobClick+Configration.m */; };
 		278532C11F74003500AEE4F4 /* KeywordEntity+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 278532BE1F74003500AEE4F4 /* KeywordEntity+CoreDataClass.m */; };
 		278532C21F74003500AEE4F4 /* KeywordEntity+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 278532C01F74003500AEE4F4 /* KeywordEntity+CoreDataProperties.m */; };
 		27AF109F1F6E958F00E6301E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 27AF109E1F6E958F00E6301E /* main.m */; };
@@ -35,6 +36,8 @@
 		272866621F717E2000586AD3 /* MoreTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreTableViewController.m; sourceTree = "<group>"; };
 		2747A2F61F76544C00F31979 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		2768F8C61F740E0800C44874 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		277E96241F790367004D5E7B /* MobClick+Configration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MobClick+Configration.h"; sourceTree = "<group>"; };
+		277E96251F790367004D5E7B /* MobClick+Configration.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "MobClick+Configration.m"; sourceTree = "<group>"; };
 		278532BD1F74003500AEE4F4 /* KeywordEntity+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KeywordEntity+CoreDataClass.h"; sourceTree = "<group>"; };
 		278532BE1F74003500AEE4F4 /* KeywordEntity+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "KeywordEntity+CoreDataClass.m"; sourceTree = "<group>"; };
 		278532BF1F74003500AEE4F4 /* KeywordEntity+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KeywordEntity+CoreDataProperties.h"; sourceTree = "<group>"; };
@@ -109,6 +112,8 @@
 			children = (
 				27AF10A01F6E958F00E6301E /* AppDelegate.h */,
 				27AF10A11F6E958F00E6301E /* AppDelegate.m */,
+				277E96241F790367004D5E7B /* MobClick+Configration.h */,
+				277E96251F790367004D5E7B /* MobClick+Configration.m */,
 				27AF10A31F6E958F00E6301E /* ViewController.h */,
 				27AF10A41F6E958F00E6301E /* ViewController.m */,
 				27AF10EA1F70457900E6301E /* ResultModel.h */,
@@ -291,6 +296,7 @@
 				27AF10A51F6E958F00E6301E /* ViewController.m in Sources */,
 				27AF10EC1F70457900E6301E /* ResultModel.m in Sources */,
 				27B937BE1F73F1D000794C38 /* Soil.xcdatamodeld in Sources */,
+				277E96261F790367004D5E7B /* MobClick+Configration.m in Sources */,
 				27D4C0FC1F70B61A00069180 /* ResultsTableViewController.m in Sources */,
 				27BD7A8E1F72728700F346F5 /* HistoryCollectionViewCell.m in Sources */,
 				27AF10A21F6E958F00E6301E /* AppDelegate.m in Sources */,
