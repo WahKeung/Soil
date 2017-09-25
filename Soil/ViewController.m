@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *cloudImageView;
 @property (weak, nonatomic) IBOutlet UIButton *siteButton;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *scrollViewBottomConstraint;
 
 @property (nonatomic, strong) NSString *selectedSite;
 
@@ -35,7 +36,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-[self readKeywords];
+    [self readKeywords];
     
     // Replace this ad unit ID with your own ad unit ID.
 #ifdef DEBUG
@@ -87,12 +88,22 @@
     CGRect frameBegin = [info[UIKeyboardFrameBeginUserInfoKey] CGRectValue];
     CGRect frameEnd = [info[UIKeyboardFrameEndUserInfoKey] CGRectValue];
     
+    CGFloat height = CGRectGetHeight([UIScreen mainScreen].bounds)-CGRectGetMinY(frameEnd);
+    [self changeScrollerViewBottomConstraintToHeight:height durantion:animationDuration];
+    
     if (CGRectGetMinY(frameEnd)<CGRectGetHeight([UIScreen mainScreen].bounds) && CGRectGetMinY(frameBegin)>=CGRectGetHeight([UIScreen mainScreen].bounds)) {
-        [self activateSearchBarWithDuration:animationDuration];
+//        [self activateSearchBarWithDuration:animationDuration];
+        
     } else if (CGRectGetMinY(frameEnd)==CGRectGetHeight([UIScreen mainScreen].bounds)) {
-        [self unactivateSearchBarWithDuration:animationDuration];
+//        [self unactivateSearchBarWithDuration:animationDuration];
     }
     
+}
+
+- (void)changeScrollerViewBottomConstraintToHeight:(CGFloat)height durantion:(CGFloat)durantion {
+    [UIView animateWithDuration:durantion animations:^{
+        self.scrollViewBottomConstraint.constant = height;
+    }];
 }
 
 - (void)activateSearchBarWithDuration:(CGFloat)duration {

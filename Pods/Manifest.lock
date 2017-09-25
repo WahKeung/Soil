@@ -15,15 +15,18 @@ PODS:
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
   - Google-Mobile-Ads-SDK (7.23.0)
+  - UMengAnalytics-NO-IDFA (4.2.5)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
   - Google-Mobile-Ads-SDK
+  - UMengAnalytics-NO-IDFA
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   Google-Mobile-Ads-SDK: a43dc8efdb566c74d00ac6934c781de969348d80
+  UMengAnalytics-NO-IDFA: 16666e32edce5be44ae5b14aaaa7f3582e09d6ab
 
-PODFILE CHECKSUM: 4c48f31ce2ce0504ed0fb96171f12e2131d138f0
+PODFILE CHECKSUM: 51042aad566ada80ba12c6c3c901bab1a1f44b28
 
 COCOAPODS: 1.3.1
