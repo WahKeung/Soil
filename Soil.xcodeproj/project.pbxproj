@@ -11,6 +11,25 @@
 		2704D0BE1F7B81340051BBA5 /* ADTableTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2704D0BD1F7B81340051BBA5 /* ADTableTableViewCell.m */; };
 		2704D0C11F7B8C100051BBA5 /* GADNativeExpressAdView+LoadAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 2704D0C01F7B8C100051BBA5 /* GADNativeExpressAdView+LoadAction.m */; };
 		2704D0DD1F7BAE920051BBA5 /* RootTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2704D0DC1F7BAE920051BBA5 /* RootTabBarViewController.m */; };
+		27090F2B1F7D26D300A50607 /* Meizi.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27090F061F7D23E500A50607 /* Meizi.storyboard */; };
+		27090F2D1F7D286F00A50607 /* MeiziRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 27090EFE1F7D23E500A50607 /* MeiziRequest.m */; };
+		27090F2E1F7D286F00A50607 /* CacheSizeLabel+Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = 27090EFF1F7D23E500A50607 /* CacheSizeLabel+Manager.m */; };
+		27090F2F1F7D286F00A50607 /* CacheSizeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 27090F031F7D23E500A50607 /* CacheSizeLabel.m */; };
+		27090F301F7D286F00A50607 /* SYNavigationDropdownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 27090F081F7D23E500A50607 /* SYNavigationDropdownMenu.m */; };
+		27090F311F7D286F00A50607 /* MeiziViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27090F0E1F7D23E500A50607 /* MeiziViewController.m */; };
+		27090F321F7D286F00A50607 /* Meizi.m in Sources */ = {isa = PBXBuildFile; fileRef = 27090F0F1F7D23E500A50607 /* Meizi.m */; };
+		27090F331F7D286F00A50607 /* SYNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 27090F151F7D23E500A50607 /* SYNetworkManager.m */; };
+		27090F341F7D286F00A50607 /* SYBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 27090F171F7D23E500A50607 /* SYBaseRequest.m */; };
+		27090F351F7D286F00A50607 /* SYBatchRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 27090F181F7D23E500A50607 /* SYBatchRequest.m */; };
+		27090F361F7D286F00A50607 /* SYChainRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 27090F1A1F7D23E500A50607 /* SYChainRequestManager.m */; };
+		27090F371F7D286F00A50607 /* SYBatchRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 27090F1B1F7D23E500A50607 /* SYBatchRequestManager.m */; };
+		27090F381F7D286F00A50607 /* SYNetworkUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 27090F1F1F7D23E500A50607 /* SYNetworkUtil.m */; };
+		27090F391F7D286F00A50607 /* SYNetworkConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 27090F221F7D23E500A50607 /* SYNetworkConfig.m */; };
+		27090F3A1F7D286F00A50607 /* SYChainRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 27090F251F7D23E500A50607 /* SYChainRequest.m */; };
+		27090F3B1F7D286F00A50607 /* SYNetworkCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 27090F271F7D23E500A50607 /* SYNetworkCacheManager.m */; };
+		27090F3C1F7D286F00A50607 /* MeiziCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 27090F291F7D23E500A50607 /* MeiziCell.m */; };
+		27090F3D1F7D286F00A50607 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27090F2A1F7D23E500A50607 /* SettingViewController.m */; };
+		27090F3E1F7D28C200A50607 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27090F0D1F7D23E500A50607 /* Images.xcassets */; };
 		272866631F717E2000586AD3 /* MoreTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 272866621F717E2000586AD3 /* MoreTableViewController.m */; };
 		2747A2F71F76544C00F31979 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2747A2F61F76544C00F31979 /* StoreKit.framework */; };
 		2768F8C71F740E0900C44874 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2768F8C61F740E0800C44874 /* MessageUI.framework */; };
@@ -44,6 +63,44 @@
 		2704D0C01F7B8C100051BBA5 /* GADNativeExpressAdView+LoadAction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "GADNativeExpressAdView+LoadAction.m"; sourceTree = "<group>"; };
 		2704D0DB1F7BAE920051BBA5 /* RootTabBarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootTabBarViewController.h; sourceTree = "<group>"; };
 		2704D0DC1F7BAE920051BBA5 /* RootTabBarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootTabBarViewController.m; sourceTree = "<group>"; };
+		27090EFE1F7D23E500A50607 /* MeiziRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeiziRequest.m; sourceTree = "<group>"; };
+		27090EFF1F7D23E500A50607 /* CacheSizeLabel+Manager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CacheSizeLabel+Manager.m"; sourceTree = "<group>"; };
+		27090F011F7D23E500A50607 /* Meizi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Meizi.h; sourceTree = "<group>"; };
+		27090F021F7D23E500A50607 /* MeiziViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeiziViewController.h; sourceTree = "<group>"; };
+		27090F031F7D23E500A50607 /* CacheSizeLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CacheSizeLabel.m; sourceTree = "<group>"; };
+		27090F041F7D23E500A50607 /* SettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		27090F051F7D23E500A50607 /* MeiziCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeiziCell.h; sourceTree = "<group>"; };
+		27090F061F7D23E500A50607 /* Meizi.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Meizi.storyboard; sourceTree = "<group>"; };
+		27090F081F7D23E500A50607 /* SYNavigationDropdownMenu.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SYNavigationDropdownMenu.m; sourceTree = "<group>"; };
+		27090F091F7D23E500A50607 /* SYNavigationDropdownMenu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SYNavigationDropdownMenu.h; sourceTree = "<group>"; };
+		27090F0A1F7D23E500A50607 /* MeiziRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeiziRequest.h; sourceTree = "<group>"; };
+		27090F0C1F7D23E500A50607 /* CacheSizeLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CacheSizeLabel.h; sourceTree = "<group>"; };
+		27090F0D1F7D23E500A50607 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		27090F0E1F7D23E500A50607 /* MeiziViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeiziViewController.m; sourceTree = "<group>"; };
+		27090F0F1F7D23E500A50607 /* Meizi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Meizi.m; sourceTree = "<group>"; };
+		27090F121F7D23E500A50607 /* CacheSizeLabel+Manager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CacheSizeLabel+Manager.h"; sourceTree = "<group>"; };
+		27090F131F7D23E500A50607 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		27090F151F7D23E500A50607 /* SYNetworkManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SYNetworkManager.m; sourceTree = "<group>"; };
+		27090F161F7D23E500A50607 /* SYNetworkUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SYNetworkUtil.h; sourceTree = "<group>"; };
+		27090F171F7D23E500A50607 /* SYBaseRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SYBaseRequest.m; sourceTree = "<group>"; };
+		27090F181F7D23E500A50607 /* SYBatchRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SYBatchRequest.m; sourceTree = "<group>"; };
+		27090F191F7D23E500A50607 /* SYNetworkConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SYNetworkConfig.h; sourceTree = "<group>"; };
+		27090F1A1F7D23E500A50607 /* SYChainRequestManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SYChainRequestManager.m; sourceTree = "<group>"; };
+		27090F1B1F7D23E500A50607 /* SYBatchRequestManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SYBatchRequestManager.m; sourceTree = "<group>"; };
+		27090F1C1F7D23E500A50607 /* SYChainRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SYChainRequest.h; sourceTree = "<group>"; };
+		27090F1D1F7D23E500A50607 /* SYNetworkCacheManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SYNetworkCacheManager.h; sourceTree = "<group>"; };
+		27090F1E1F7D23E500A50607 /* SYBaseRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SYBaseRequest.h; sourceTree = "<group>"; };
+		27090F1F1F7D23E500A50607 /* SYNetworkUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SYNetworkUtil.m; sourceTree = "<group>"; };
+		27090F201F7D23E500A50607 /* SYNetworkManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SYNetworkManager.h; sourceTree = "<group>"; };
+		27090F211F7D23E500A50607 /* SYBatchRequestManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SYBatchRequestManager.h; sourceTree = "<group>"; };
+		27090F221F7D23E500A50607 /* SYNetworkConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SYNetworkConfig.m; sourceTree = "<group>"; };
+		27090F231F7D23E500A50607 /* SYChainRequestManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SYChainRequestManager.h; sourceTree = "<group>"; };
+		27090F241F7D23E500A50607 /* SYBatchRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SYBatchRequest.h; sourceTree = "<group>"; };
+		27090F251F7D23E500A50607 /* SYChainRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SYChainRequest.m; sourceTree = "<group>"; };
+		27090F261F7D23E500A50607 /* SYNetwork.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SYNetwork.h; sourceTree = "<group>"; };
+		27090F271F7D23E500A50607 /* SYNetworkCacheManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SYNetworkCacheManager.m; sourceTree = "<group>"; };
+		27090F291F7D23E500A50607 /* MeiziCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeiziCell.m; sourceTree = "<group>"; };
+		27090F2A1F7D23E500A50607 /* SettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		272866611F717E2000586AD3 /* MoreTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreTableViewController.h; sourceTree = "<group>"; };
 		272866621F717E2000586AD3 /* MoreTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreTableViewController.m; sourceTree = "<group>"; };
 		2747A2F61F76544C00F31979 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
@@ -96,10 +153,73 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		27090EFD1F7D23E500A50607 /* Meizi */ = {
+			isa = PBXGroup;
+			children = (
+				27090EFE1F7D23E500A50607 /* MeiziRequest.m */,
+				27090EFF1F7D23E500A50607 /* CacheSizeLabel+Manager.m */,
+				27090F011F7D23E500A50607 /* Meizi.h */,
+				27090F021F7D23E500A50607 /* MeiziViewController.h */,
+				27090F031F7D23E500A50607 /* CacheSizeLabel.m */,
+				27090F041F7D23E500A50607 /* SettingViewController.h */,
+				27090F051F7D23E500A50607 /* MeiziCell.h */,
+				27090F061F7D23E500A50607 /* Meizi.storyboard */,
+				27090F071F7D23E500A50607 /* SYNavigationDropdownMenu */,
+				27090F0A1F7D23E500A50607 /* MeiziRequest.h */,
+				27090F0C1F7D23E500A50607 /* CacheSizeLabel.h */,
+				27090F0D1F7D23E500A50607 /* Images.xcassets */,
+				27090F0E1F7D23E500A50607 /* MeiziViewController.m */,
+				27090F0F1F7D23E500A50607 /* Meizi.m */,
+				27090F121F7D23E500A50607 /* CacheSizeLabel+Manager.h */,
+				27090F131F7D23E500A50607 /* PrefixHeader.pch */,
+				27090F141F7D23E500A50607 /* SYNetwork */,
+				27090F291F7D23E500A50607 /* MeiziCell.m */,
+				27090F2A1F7D23E500A50607 /* SettingViewController.m */,
+			);
+			name = Meizi;
+			path = Soil/Meizi;
+			sourceTree = "<group>";
+		};
+		27090F071F7D23E500A50607 /* SYNavigationDropdownMenu */ = {
+			isa = PBXGroup;
+			children = (
+				27090F081F7D23E500A50607 /* SYNavigationDropdownMenu.m */,
+				27090F091F7D23E500A50607 /* SYNavigationDropdownMenu.h */,
+			);
+			path = SYNavigationDropdownMenu;
+			sourceTree = "<group>";
+		};
+		27090F141F7D23E500A50607 /* SYNetwork */ = {
+			isa = PBXGroup;
+			children = (
+				27090F151F7D23E500A50607 /* SYNetworkManager.m */,
+				27090F161F7D23E500A50607 /* SYNetworkUtil.h */,
+				27090F171F7D23E500A50607 /* SYBaseRequest.m */,
+				27090F181F7D23E500A50607 /* SYBatchRequest.m */,
+				27090F191F7D23E500A50607 /* SYNetworkConfig.h */,
+				27090F1A1F7D23E500A50607 /* SYChainRequestManager.m */,
+				27090F1B1F7D23E500A50607 /* SYBatchRequestManager.m */,
+				27090F1C1F7D23E500A50607 /* SYChainRequest.h */,
+				27090F1D1F7D23E500A50607 /* SYNetworkCacheManager.h */,
+				27090F1E1F7D23E500A50607 /* SYBaseRequest.h */,
+				27090F1F1F7D23E500A50607 /* SYNetworkUtil.m */,
+				27090F201F7D23E500A50607 /* SYNetworkManager.h */,
+				27090F211F7D23E500A50607 /* SYBatchRequestManager.h */,
+				27090F221F7D23E500A50607 /* SYNetworkConfig.m */,
+				27090F231F7D23E500A50607 /* SYChainRequestManager.h */,
+				27090F241F7D23E500A50607 /* SYBatchRequest.h */,
+				27090F251F7D23E500A50607 /* SYChainRequest.m */,
+				27090F261F7D23E500A50607 /* SYNetwork.h */,
+				27090F271F7D23E500A50607 /* SYNetworkCacheManager.m */,
+			);
+			path = SYNetwork;
+			sourceTree = "<group>";
+		};
 		27AF10911F6E958F00E6301E = {
 			isa = PBXGroup;
 			children = (
 				27AF10DF1F6EC67E00E6301E /* Declaration.html */,
+				27090EFD1F7D23E500A50607 /* Meizi */,
 				27AF109C1F6E958F00E6301E /* Soil */,
 				27AF109B1F6E958F00E6301E /* Products */,
 				4E32A5E0AF2AA87BD6DA0170 /* Pods */,
@@ -251,7 +371,9 @@
 				27AF10AD1F6E958F00E6301E /* LaunchScreen.storyboard in Resources */,
 				27AF10E01F6EC67E00E6301E /* Declaration.html in Resources */,
 				27AF10AA1F6E958F00E6301E /* Assets.xcassets in Resources */,
+				27090F3E1F7D28C200A50607 /* Images.xcassets in Resources */,
 				27AF10A81F6E958F00E6301E /* Main.storyboard in Resources */,
+				27090F2B1F7D26D300A50607 /* Meizi.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,9 +419,13 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Soil/Pods-Soil-resources.sh",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -313,6 +439,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27090F2D1F7D286F00A50607 /* MeiziRequest.m in Sources */,
+				27090F2E1F7D286F00A50607 /* CacheSizeLabel+Manager.m in Sources */,
+				27090F2F1F7D286F00A50607 /* CacheSizeLabel.m in Sources */,
+				27090F301F7D286F00A50607 /* SYNavigationDropdownMenu.m in Sources */,
+				27090F311F7D286F00A50607 /* MeiziViewController.m in Sources */,
+				27090F321F7D286F00A50607 /* Meizi.m in Sources */,
+				27090F331F7D286F00A50607 /* SYNetworkManager.m in Sources */,
+				27090F341F7D286F00A50607 /* SYBaseRequest.m in Sources */,
+				27090F351F7D286F00A50607 /* SYBatchRequest.m in Sources */,
+				27090F361F7D286F00A50607 /* SYChainRequestManager.m in Sources */,
+				27090F371F7D286F00A50607 /* SYBatchRequestManager.m in Sources */,
+				27090F381F7D286F00A50607 /* SYNetworkUtil.m in Sources */,
+				27090F391F7D286F00A50607 /* SYNetworkConfig.m in Sources */,
+				27090F3A1F7D286F00A50607 /* SYChainRequest.m in Sources */,
+				27090F3B1F7D286F00A50607 /* SYNetworkCacheManager.m in Sources */,
+				27090F3C1F7D286F00A50607 /* MeiziCell.m in Sources */,
+				27090F3D1F7D286F00A50607 /* SettingViewController.m in Sources */,
 				27AF10A51F6E958F00E6301E /* ViewController.m in Sources */,
 				27AF10EC1F70457900E6301E /* ResultModel.m in Sources */,
 				27B937BE1F73F1D000794C38 /* Soil.xcdatamodeld in Sources */,
@@ -463,6 +606,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = R99GVVPKY2;
+				GCC_PREFIX_HEADER = Soil/Meizi/PrefixHeader.pch;
 				INFOPLIST_FILE = Soil/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -481,6 +625,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = R99GVVPKY2;
+				GCC_PREFIX_HEADER = Soil/Meizi/PrefixHeader.pch;
 				INFOPLIST_FILE = Soil/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 @import GoogleMobileAds;
 #import "MobClick+Configration.h"
+#import "SYNetwork.h"
+#import "RootTabBarViewController.h"
 
 @interface AppDelegate ()
 
@@ -21,6 +23,22 @@
     // Override point for customization after application launch.
     [GADMobileAds configureWithApplicationID:@"ca-app-pub-3925127038024110~6432262514"];
     [MobClick startServiceWithAppKey:@"59c9ce476e27a467410003a2"];
+    
+    //Set Network
+    [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
+    
+    //Set SVProgressHUD
+    [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
+    
+    
+    RootTabBarViewController *root = (RootTabBarViewController *)self.window.rootViewController;
+    NSMutableArray *arr = [NSMutableArray arrayWithArray:root.viewControllers];
+    
+    UIStoryboard *meiziStoryboard = [UIStoryboard storyboardWithName:@"Meizi" bundle:nil];
+    UIViewController *meizi = meiziStoryboard.instantiateInitialViewController;
+    [arr insertObject:meizi atIndex:1];
+    root.viewControllers = arr;
+    
     return YES;
 }
 
