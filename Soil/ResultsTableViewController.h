@@ -12,5 +12,6 @@
 
 @property (nonatomic, strong) NSString *keyword;
 @property (nonatomic, strong) NSString *site;
+@property (nonatomic, assign) BOOL showInterstitialAD;
 
 @end

@@ -12,6 +12,7 @@
 #import "KeywordEntity+CoreDataClass.h"
 #import <MessageUI/MessageUI.h>
 #import <StoreKit/StoreKit.h>
+#import "GADBannerView+LoadAction.h"
 
 @interface MoreTableViewController ()<MFMailComposeViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet GADBannerView *bannerView;
@@ -28,19 +29,12 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-#ifdef DEBUG
-    // Debug 模式的代码...
-    self.bannerView.adUnitID = @"ca-app-pub-3940256099942544/6300978111";
-#else
-    // Release 模式的代码...
-    self.bannerView.adUnitID = @"ca-app-pub-3925127038024110/3367115478";
-#endif
-    self.bannerView.adSize = kGADAdSizeBanner;
-    self.bannerView.rootViewController = self;
-    GADRequest *request = [GADRequest request];
-    request.testDevices = @[@"655075e7bea6a2c0298f220f9fa5879faaa67139"];
-    [self.bannerView loadRequest:request];
+
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.bannerView loadADWithRootViewController:self];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -82,7 +76,7 @@
     // 设置邮件代理
     [mailCompose setMailComposeDelegate:self];
     // 设置收件人
-    [mailCompose setToRecipients:@[@"appformike@163.com"]];
+    [mailCompose setToRecipients:@[@"qwe123#$%@163.com"]];
     // 设置抄送人
 //    [mailCompose setCcRecipients:@[@"1622849369@qq.com"]];
     // 设置密送人

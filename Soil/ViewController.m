@@ -11,6 +11,9 @@
 #import "HistoryCollectionViewCell.h"
 #import "KeywordEntity+CoreDataClass.h"
 #import "AppDelegate.h"
+#import "GADBannerView+LoadAction.h"
+#import "RootTabBarViewController.h"
+#import "ResultsTableViewController.h"
 
 @interface ViewController () <UITextFieldDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
@@ -38,23 +41,14 @@
     // Do any additional setup after loading the view, typically from a nib.
     [self readKeywords];
     
-    // Replace this ad unit ID with your own ad unit ID.
-#ifdef DEBUG
-    // Debug 模式的代码...
-    self.bannerView.adUnitID = @"ca-app-pub-3940256099942544/6300978111";
-#else
-    // Release 模式的代码...
-    self.bannerView.adUnitID = @"ca-app-pub-3925127038024110/3367115478";
-#endif
-    self.bannerView.adSize = kGADAdSizeBanner;
-    self.bannerView.rootViewController = self;
-    GADRequest *request = [GADRequest request];
-    request.testDevices = @[@"655075e7bea6a2c0298f220f9fa5879faaa67139"];
-    [self.bannerView loadRequest:request];
-    
     self.selectedSite = @"pan.baidu.com";
     [self setupSubviews];
     [self addObserverForKeyboardWithSelector:@selector(keyboardWillChangeFrameWithNotification:)];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.bannerView loadADWithRootViewController:self];
 }
 
 - (void)setupSubviews {
@@ -162,7 +156,9 @@
                             @"115网盘":@"115.com",
                             @"微盘":@"vdisk.weibo.com"};
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"选择网盘" message:@"请选择你需要的网盘" preferredStyle:UIAlertControllerStyleActionSheet];
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        [self showInterstitialAd];
+    }];
     [alertController addAction:cancelAction];
     
     [sites enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
@@ -170,11 +166,20 @@
         UIAlertAction *action = [UIAlertAction actionWithTitle:title style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             self.selectedSite = obj;
             [self.siteButton setTitle:title forState:UIControlStateNormal];
+            
+            [self showInterstitialAd];
         }];
         [alertController addAction:action];
     }];
     
     [self presentViewController:alertController animated:YES completion:nil];
+}
+
+- (void)showInterstitialAd {
+    if ([self.tabBarController isKindOfClass:[RootTabBarViewController class]]) {
+        RootTabBarViewController *rootTabBarController = (RootTabBarViewController *)self.tabBarController;
+        [rootTabBarController presentInterstitialAd];
+    }
 }
 
 - (IBAction)changeSourceAction:(id)sender {
@@ -198,9 +203,10 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"segue.show.ResultsTableViewController"]) {
-        UIViewController *destinationController = segue.destinationViewController;
-        [destinationController setValue:sender?sender:self.textField.text forKey:@"keyword"];
-        [destinationController setValue:self.selectedSite forKey:@"site"];
+        ResultsTableViewController *resultsController = segue.destinationViewController;
+        resultsController.keyword = sender?sender:self.textField.text;
+        resultsController.site = self.selectedSite;
+        resultsController.showInterstitialAD = YES;
     }
 }
 

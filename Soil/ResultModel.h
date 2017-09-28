@@ -13,5 +13,7 @@
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *url;
 @property (nonatomic, strong) NSString *desc;
+@property (nonatomic, assign) BOOL isAD;
+@property (nonatomic, assign) BOOL showInterstitial;
 
 @end

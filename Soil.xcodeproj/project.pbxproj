@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2704D0BB1F7B594E0051BBA5 /* GADBannerView+LoadAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 2704D0BA1F7B594E0051BBA5 /* GADBannerView+LoadAction.m */; };
+		2704D0BE1F7B81340051BBA5 /* ADTableTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2704D0BD1F7B81340051BBA5 /* ADTableTableViewCell.m */; };
+		2704D0C11F7B8C100051BBA5 /* GADNativeExpressAdView+LoadAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 2704D0C01F7B8C100051BBA5 /* GADNativeExpressAdView+LoadAction.m */; };
+		2704D0DD1F7BAE920051BBA5 /* RootTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2704D0DC1F7BAE920051BBA5 /* RootTabBarViewController.m */; };
 		272866631F717E2000586AD3 /* MoreTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 272866621F717E2000586AD3 /* MoreTableViewController.m */; };
 		2747A2F71F76544C00F31979 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2747A2F61F76544C00F31979 /* StoreKit.framework */; };
 		2768F8C71F740E0900C44874 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2768F8C61F740E0800C44874 /* MessageUI.framework */; };
@@ -32,6 +36,14 @@
 
 /* Begin PBXFileReference section */
 		1B766756575FF91322C89858 /* libPods-Soil.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Soil.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2704D0B91F7B594E0051BBA5 /* GADBannerView+LoadAction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GADBannerView+LoadAction.h"; sourceTree = "<group>"; };
+		2704D0BA1F7B594E0051BBA5 /* GADBannerView+LoadAction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "GADBannerView+LoadAction.m"; sourceTree = "<group>"; };
+		2704D0BC1F7B81340051BBA5 /* ADTableTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ADTableTableViewCell.h; sourceTree = "<group>"; };
+		2704D0BD1F7B81340051BBA5 /* ADTableTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ADTableTableViewCell.m; sourceTree = "<group>"; };
+		2704D0BF1F7B8C100051BBA5 /* GADNativeExpressAdView+LoadAction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GADNativeExpressAdView+LoadAction.h"; sourceTree = "<group>"; };
+		2704D0C01F7B8C100051BBA5 /* GADNativeExpressAdView+LoadAction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "GADNativeExpressAdView+LoadAction.m"; sourceTree = "<group>"; };
+		2704D0DB1F7BAE920051BBA5 /* RootTabBarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootTabBarViewController.h; sourceTree = "<group>"; };
+		2704D0DC1F7BAE920051BBA5 /* RootTabBarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootTabBarViewController.m; sourceTree = "<group>"; };
 		272866611F717E2000586AD3 /* MoreTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreTableViewController.h; sourceTree = "<group>"; };
 		272866621F717E2000586AD3 /* MoreTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreTableViewController.m; sourceTree = "<group>"; };
 		2747A2F61F76544C00F31979 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
@@ -116,6 +128,8 @@
 				277E96251F790367004D5E7B /* MobClick+Configration.m */,
 				27AF10A31F6E958F00E6301E /* ViewController.h */,
 				27AF10A41F6E958F00E6301E /* ViewController.m */,
+				2704D0DB1F7BAE920051BBA5 /* RootTabBarViewController.h */,
+				2704D0DC1F7BAE920051BBA5 /* RootTabBarViewController.m */,
 				27AF10EA1F70457900E6301E /* ResultModel.h */,
 				27AF10EB1F70457900E6301E /* ResultModel.m */,
 				27D4C0FA1F70B61A00069180 /* ResultsTableViewController.h */,
@@ -128,6 +142,12 @@
 				27BD7A8D1F72728700F346F5 /* HistoryCollectionViewCell.m */,
 				272866611F717E2000586AD3 /* MoreTableViewController.h */,
 				272866621F717E2000586AD3 /* MoreTableViewController.m */,
+				2704D0B91F7B594E0051BBA5 /* GADBannerView+LoadAction.h */,
+				2704D0BA1F7B594E0051BBA5 /* GADBannerView+LoadAction.m */,
+				2704D0BF1F7B8C100051BBA5 /* GADNativeExpressAdView+LoadAction.h */,
+				2704D0C01F7B8C100051BBA5 /* GADNativeExpressAdView+LoadAction.m */,
+				2704D0BC1F7B81340051BBA5 /* ADTableTableViewCell.h */,
+				2704D0BD1F7B81340051BBA5 /* ADTableTableViewCell.m */,
 				27AF10A61F6E958F00E6301E /* Main.storyboard */,
 				27AF10A91F6E958F00E6301E /* Assets.xcassets */,
 				27AF10AB1F6E958F00E6301E /* LaunchScreen.storyboard */,
@@ -297,6 +317,8 @@
 				27AF10EC1F70457900E6301E /* ResultModel.m in Sources */,
 				27B937BE1F73F1D000794C38 /* Soil.xcdatamodeld in Sources */,
 				277E96261F790367004D5E7B /* MobClick+Configration.m in Sources */,
+				2704D0C11F7B8C100051BBA5 /* GADNativeExpressAdView+LoadAction.m in Sources */,
+				2704D0BE1F7B81340051BBA5 /* ADTableTableViewCell.m in Sources */,
 				27D4C0FC1F70B61A00069180 /* ResultsTableViewController.m in Sources */,
 				277E96421F7908A7004D5E7B /* KeywordEntity+CoreDataProperties.m in Sources */,
 				27BD7A8E1F72728700F346F5 /* HistoryCollectionViewCell.m in Sources */,
@@ -304,8 +326,10 @@
 				27AF109F1F6E958F00E6301E /* main.m in Sources */,
 				27D4C0FF1F70B67E00069180 /* ResultTableViewCell.m in Sources */,
 				272866631F717E2000586AD3 /* MoreTableViewController.m in Sources */,
+				2704D0DD1F7BAE920051BBA5 /* RootTabBarViewController.m in Sources */,
 				277E96411F7908A7004D5E7B /* KeywordEntity+CoreDataClass.m in Sources */,
 				27AF10DC1F6EC16F00E6301E /* WebViewController.m in Sources */,
+				2704D0BB1F7B594E0051BBA5 /* GADBannerView+LoadAction.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
