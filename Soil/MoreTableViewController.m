@@ -50,7 +50,7 @@
         }
     } else if (indexPath.section==2) {
         if (indexPath.row==3) {
-            [self jumpToAppStore];
+//            [self jumpToAppStore];
             [tableView deselectRowAtIndexPath:indexPath animated:YES];
         } else if (indexPath.row==2) {
             [self showActivityController];
@@ -143,21 +143,6 @@
     [self presentViewController:alertController animated:YES completion:^{
         [self performSelector:@selector(dismissAlertController:) withObject:alertController afterDelay:1];
     }];
-}
-
-#pragma mark -
-
-- (void)jumpToAppStore {
-    UIApplication *app = [UIApplication sharedApplication];
-    NSString *appID = @"1287143610";
-    NSString *urlString = [NSString stringWithFormat:@"itms-apps://itunes.apple.com/app/id%@?action=write-review", appID];
-    NSURL *url = [NSURL URLWithString:urlString];
-    if ([app canOpenURL:url]) {
-        [app openURL:url];
-    } else {
-        [self showAlertControllerWithMessage:@"打开 App Store 失败"];
-    }
-
 }
 
 #pragma mark -

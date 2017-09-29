@@ -21,14 +21,14 @@
 - (void)presentInterstitialAd {
     if (!self.interstitial) {
         self.interstitial = [[GADInterstitial alloc]
-                             initWithAdUnitID:@"ca-app-pub-3940256099942544/1033173712"];
+                             initWithAdUnitID:@"ca-app-pub-3925127038024110/8047051921"];
         self.interstitial.delegate = self;
         GADRequest *request = [GADRequest request];
         [self.interstitial loadRequest:request];
     } else {
         if (self.interstitial.hasBeenUsed) {
             self.interstitial = [[GADInterstitial alloc]
-                                 initWithAdUnitID:@"ca-app-pub-3940256099942544/1033173712"];
+                                 initWithAdUnitID:@"ca-app-pub-3925127038024110/8047051921"];
             self.interstitial.delegate = self;
             GADRequest *request = [GADRequest request];
             [self.interstitial loadRequest:request];
@@ -82,7 +82,13 @@ didFailToReceiveAdWithError:(GADRequestError *)error {
 }
 
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
-    [self presentInterstitialAd];
+    static NSInteger clickCount = 0;
+    if (clickCount==1) {
+        [self presentInterstitialAd];
+        clickCount=0;
+    } else {
+        clickCount++;
+    }
 }
 
 - (void)presentViewController:(UIViewController *)viewControllerToPresent animated:(BOOL)flag completion:(void (^)(void))completion {

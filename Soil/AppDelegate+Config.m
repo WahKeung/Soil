@@ -59,6 +59,13 @@
         
         if (user.showBody) {
             root.viewControllers = arr;
+        } else {
+            UITabBarController *root = (UITabBarController *)self.window.rootViewController;
+            NSMutableArray *arr = [NSMutableArray arrayWithArray:root.viewControllers];
+            if (arr.count>2) {
+                [arr removeObjectAtIndex:1];
+            }
+            root.viewControllers = arr;
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@", error);

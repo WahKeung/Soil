@@ -36,4 +36,12 @@
     [[NSUserDefaults standardUserDefaults] setBool:showRate forKey:@"showRate"];
 }
 
+- (BOOL)hasShowRate {
+    return [[NSUserDefaults standardUserDefaults] boolForKey:@"hasShowRate"];
+}
+
+- (void)setHasShowRate:(BOOL)hasShowRate {
+    [[NSUserDefaults standardUserDefaults] setBool:hasShowRate forKey:@"hasShowRate"];
+}
+
 @end

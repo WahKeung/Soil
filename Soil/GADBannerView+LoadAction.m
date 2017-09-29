@@ -24,7 +24,6 @@ static NSString *const kADUnitIDForTest = @"ca-app-pub-3940256099942544/63009781
     self.adSize = kGADAdSizeBanner;
     self.rootViewController = rootViewController;
     GADRequest *request = [GADRequest request];
-    request.testDevices = @[@"655075e7bea6a2c0298f220f9fa5879faaa67139"];
     [self loadRequest:request];
 }
 

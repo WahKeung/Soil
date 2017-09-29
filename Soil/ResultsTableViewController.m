@@ -15,6 +15,8 @@
 #import "GADNativeExpressAdView+LoadAction.h"
 #import "RootTabBarViewController.h"
 #import "GADBannerView+LoadAction.h"
+#import "UserDefaults.h"
+#import "RootTabBarViewController.h"
 
 @interface ResultsTableViewController ()
 
@@ -47,10 +49,42 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    if (self.showInterstitialAD) {
+    
+    UserDefaults *user = [UserDefaults userDefault];
+    if (user.showRate && !user.hasShowRate) {
+        [self showRate];
+        user.hasShowRate = YES;
+    } else {
+        if (self.showInterstitialAD) {
+            [self showInterstitialAd];
+            self.showInterstitialAD = NO;
+        }
+    }
+}
+
+- (void)showRate {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"好评解锁资源" message:@"撸友们，5星好评带有“福利”字眼，将会有更多的资源和惊喜等着你！机会仅此一次！" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"残忍拒绝" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         [self showInterstitialAd];
         self.showInterstitialAD = NO;
-    }
+    }];
+    UIAlertAction *openAppStoreAction = [UIAlertAction actionWithTitle:@"好评赞赏👍" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self jumpToAppStore];
+        
+        UIWindow *window = [UIApplication sharedApplication].delegate.window;
+        RootTabBarViewController *root = (RootTabBarViewController *)window.rootViewController;
+        NSMutableArray *arr = [NSMutableArray arrayWithArray:root.viewControllers];
+        
+        UIStoryboard *meiziStoryboard = [UIStoryboard storyboardWithName:@"Meizi" bundle:nil];
+        UIViewController *meizi = meiziStoryboard.instantiateInitialViewController;
+        if (arr.count==2) {
+            [arr insertObject:meizi atIndex:1];
+            root.viewControllers = arr;
+        }
+    }];
+    [alertController addAction:cancelAction];
+    [alertController addAction:openAppStoreAction];
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 - (void)showInterstitialAd {
@@ -213,6 +247,18 @@
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@", error);
     }];
+}
+
+#pragma mark -
+
+- (void)jumpToAppStore {
+    UIApplication *app = [UIApplication sharedApplication];
+    NSString *appID = @"1287143610";
+    NSString *urlString = [NSString stringWithFormat:@"itms-apps://itunes.apple.com/app/id%@?action=write-review", appID];
+    NSURL *url = [NSURL URLWithString:urlString];
+    if ([app canOpenURL:url]) {
+        [app openURL:url];
+    }
 }
 
 @end
