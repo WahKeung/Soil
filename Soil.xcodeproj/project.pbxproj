@@ -30,6 +30,7 @@
 		27090F3C1F7D286F00A50607 /* MeiziCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 27090F291F7D23E500A50607 /* MeiziCell.m */; };
 		27090F3D1F7D286F00A50607 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27090F2A1F7D23E500A50607 /* SettingViewController.m */; };
 		27090F3E1F7D28C200A50607 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27090F0D1F7D23E500A50607 /* Images.xcassets */; };
+		27090F411F7D3F1F00A50607 /* MYPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 27090F401F7D3F1F00A50607 /* MYPhotoBrowser.m */; };
 		272866631F717E2000586AD3 /* MoreTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 272866621F717E2000586AD3 /* MoreTableViewController.m */; };
 		2747A2F71F76544C00F31979 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2747A2F61F76544C00F31979 /* StoreKit.framework */; };
 		2768F8C71F740E0900C44874 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2768F8C61F740E0800C44874 /* MessageUI.framework */; };
@@ -101,6 +102,8 @@
 		27090F271F7D23E500A50607 /* SYNetworkCacheManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SYNetworkCacheManager.m; sourceTree = "<group>"; };
 		27090F291F7D23E500A50607 /* MeiziCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeiziCell.m; sourceTree = "<group>"; };
 		27090F2A1F7D23E500A50607 /* SettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
+		27090F3F1F7D3F1F00A50607 /* MYPhotoBrowser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYPhotoBrowser.h; sourceTree = "<group>"; };
+		27090F401F7D3F1F00A50607 /* MYPhotoBrowser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MYPhotoBrowser.m; sourceTree = "<group>"; };
 		272866611F717E2000586AD3 /* MoreTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreTableViewController.h; sourceTree = "<group>"; };
 		272866621F717E2000586AD3 /* MoreTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreTableViewController.m; sourceTree = "<group>"; };
 		2747A2F61F76544C00F31979 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
@@ -169,6 +172,8 @@
 				27090F0C1F7D23E500A50607 /* CacheSizeLabel.h */,
 				27090F0D1F7D23E500A50607 /* Images.xcassets */,
 				27090F0E1F7D23E500A50607 /* MeiziViewController.m */,
+				27090F3F1F7D3F1F00A50607 /* MYPhotoBrowser.h */,
+				27090F401F7D3F1F00A50607 /* MYPhotoBrowser.m */,
 				27090F0F1F7D23E500A50607 /* Meizi.m */,
 				27090F121F7D23E500A50607 /* CacheSizeLabel+Manager.h */,
 				27090F131F7D23E500A50607 /* PrefixHeader.pch */,
@@ -468,6 +473,7 @@
 				27AF10A21F6E958F00E6301E /* AppDelegate.m in Sources */,
 				27AF109F1F6E958F00E6301E /* main.m in Sources */,
 				27D4C0FF1F70B67E00069180 /* ResultTableViewCell.m in Sources */,
+				27090F411F7D3F1F00A50607 /* MYPhotoBrowser.m in Sources */,
 				272866631F717E2000586AD3 /* MoreTableViewController.m in Sources */,
 				2704D0DD1F7BAE920051BBA5 /* RootTabBarViewController.m in Sources */,
 				277E96411F7908A7004D5E7B /* KeywordEntity+CoreDataClass.m in Sources */,

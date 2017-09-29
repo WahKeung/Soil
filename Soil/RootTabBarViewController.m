@@ -7,8 +7,12 @@
 //
 
 #import "RootTabBarViewController.h"
+#import "SYPhotoBrowser.h"
 
 @interface RootTabBarViewController ()<GADInterstitialDelegate>
+
+@property (nonatomic, strong) SYPhotoBrowser *photoBrowser;
+@property (nonatomic, assign) BOOL needToPresentPhotos;
 
 @end
 
@@ -63,12 +67,32 @@ didFailToReceiveAdWithError:(GADRequestError *)error {
 /// Tells the delegate the interstitial had been animated off the screen.
 - (void)interstitialDidDismissScreen:(GADInterstitial *)ad {
     NSLog(@"interstitialDidDismissScreen");
+    if (self.needToPresentPhotos && self.photoBrowser) {
+        [self presentViewController:self.photoBrowser animated:YES completion:^{
+            self.needToPresentPhotos = NO;
+            self.photoBrowser = nil;
+        }];
+    }
 }
 
 /// Tells the delegate that a user click will open another app
 /// (such as the App Store), backgrounding the current app.
 - (void)interstitialWillLeaveApplication:(GADInterstitial *)ad {
     NSLog(@"interstitialWillLeaveApplication");
+}
+
+- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
+    [self presentInterstitialAd];
+}
+
+- (void)presentViewController:(UIViewController *)viewControllerToPresent animated:(BOOL)flag completion:(void (^)(void))completion {
+    if ([viewControllerToPresent isKindOfClass:[SYPhotoBrowser class]] && self.needToPresentPhotos==NO) {
+        self.needToPresentPhotos = YES;
+        self.photoBrowser = (SYPhotoBrowser *)viewControllerToPresent;
+        [self presentInterstitialAd];
+    } else {
+        [super presentViewController:viewControllerToPresent animated:flag completion:completion];
+    }
 }
 
 @end

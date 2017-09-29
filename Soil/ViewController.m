@@ -173,6 +173,7 @@
     }];
     
     [self presentViewController:alertController animated:YES completion:nil];
+    [self.bannerView loadADWithRootViewController:self];
 }
 
 - (void)showInterstitialAd {

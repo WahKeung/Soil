@@ -12,6 +12,8 @@
 #import "MeiziCell.h"
 #import "Meizi.h"
 #import "AppDelegate.h"
+#import "MYPhotoBrowser.h"
+#import "RootTabBarViewController.h"
 
 @interface MeiziViewController () <UICollectionViewDelegateFlowLayout, SYNavigationDropdownMenuDataSource, SYNavigationDropdownMenuDelegate>
 
@@ -77,7 +79,7 @@
     for (Meizi *meizi in self.meiziArray) {
         [photoURLArray addObject:meizi.image_url];
     }
-    SYPhotoBrowser *photoBrowser = [[SYPhotoBrowser alloc] initWithImageSourceArray:photoURLArray caption:nil delegate:self];
+    MYPhotoBrowser *photoBrowser = [[MYPhotoBrowser alloc] initWithImageSourceArray:photoURLArray caption:nil delegate:self];
 //    photoBrowser.enableStatusBarHidden = NO;
     photoBrowser.pageControlStyle = SYPhotoBrowserPageControlStyleLabel;
     photoBrowser.initialPageIndex = indexPath.item;
@@ -126,10 +128,18 @@
     [MeiziRequest requestWithPage:self.page+1 category:self.category success:^(NSArray<Meizi *> *meiziArray) {
         [self.collectionView.mj_footer endRefreshing];
         [self reloadDataWithMeiziArray:meiziArray emptyBeforeReload:NO];
+        [self showInterstial];
     } failure:^(NSString *message) {
         [SVProgressHUD showErrorWithStatus:message];
         [self.collectionView.mj_footer endRefreshing];
     }];
+}
+
+- (void)showInterstial {
+    if ([self.tabBarController isKindOfClass:[RootTabBarViewController class]]) {
+        RootTabBarViewController *tabBarController = (RootTabBarViewController *)self.tabBarController;
+        [tabBarController presentInterstitialAd];
+    }
 }
 
 - (void)reloadDataWithMeiziArray:(NSArray<Meizi *> *)meiziArray emptyBeforeReload:(BOOL)emptyBeforeReload {

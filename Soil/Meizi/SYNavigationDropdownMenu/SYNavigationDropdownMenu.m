@@ -7,6 +7,7 @@
 //
 
 #import "SYNavigationDropdownMenu.h"
+#import "RootTabBarViewController.h"
 
 @interface SYNavigationDropdownMenu () <UITableViewDataSource, UITableViewDelegate>
 
@@ -111,6 +112,11 @@
         [self setTitle:[self.dataSource titleArrayForNavigationDropdownMenu:self][indexPath.row] forState:UIControlStateNormal];
     }
     [self hide];
+    
+    if ([self.navigationController.tabBarController isKindOfClass:[RootTabBarViewController class]]) {
+        RootTabBarViewController *tabBarController = (RootTabBarViewController *)self.navigationController.tabBarController;
+        [tabBarController presentInterstitialAd];
+    }
 }
 
 #pragma mark - Public method

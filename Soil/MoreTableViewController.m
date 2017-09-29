@@ -49,10 +49,10 @@
             [tableView deselectRowAtIndexPath:indexPath animated:YES];
         }
     } else if (indexPath.section==2) {
-        if (indexPath.row==2) {
+        if (indexPath.row==3) {
             [self jumpToAppStore];
             [tableView deselectRowAtIndexPath:indexPath animated:YES];
-        } else if (indexPath.row==3) {
+        } else if (indexPath.row==2) {
             [self showActivityController];
             [tableView deselectRowAtIndexPath:indexPath animated:YES];
         }

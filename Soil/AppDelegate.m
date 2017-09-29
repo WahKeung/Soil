@@ -37,7 +37,7 @@
     UIStoryboard *meiziStoryboard = [UIStoryboard storyboardWithName:@"Meizi" bundle:nil];
     UIViewController *meizi = meiziStoryboard.instantiateInitialViewController;
     [arr insertObject:meizi atIndex:1];
-    root.viewControllers = arr;
+//    root.viewControllers = arr;
     
     return YES;
 }

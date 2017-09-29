@@ -76,7 +76,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Home" width="25" height="25"/>
+        <image name="Home" width="31" height="19"/>
     </resources>
     <color key="tintColor" red="0.13644477725028992" green="0.61168724298477173" blue="0.88167721033096313" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

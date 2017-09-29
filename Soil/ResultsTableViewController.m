@@ -14,6 +14,7 @@
 #import "ADTableTableViewCell.h"
 #import "GADNativeExpressAdView+LoadAction.h"
 #import "RootTabBarViewController.h"
+#import "GADBannerView+LoadAction.h"
 
 @interface ResultsTableViewController ()
 
@@ -26,7 +27,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.tableView.contentInset = UIEdgeInsetsMake(8, 0, 0, 0);
     
     self.pageIndex = 1;
     [self requestDataWithKeyword:self.keyword site:self.site pageIndex:self.pageIndex];
@@ -38,6 +38,7 @@
     
     self.refreshControl.enabled = YES;
     [self.refreshControl beginRefreshing];
+    [self.tableView registerClass:[UITableViewHeaderFooterView class] forHeaderFooterViewReuseIdentifier:@"footer"];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -148,8 +149,35 @@
     WebViewController *webController = [mainStryboard instantiateViewControllerWithIdentifier:@"WebViewController"];
     webController.urlString = urlString;
     webController.title = title;
+    webController.showInterstialAD = YES;
     [self showViewController:webController sender:nil];
     self.showInterstitialAD = YES;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 66;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    
+    UITableViewHeaderFooterView *view = [self.tableView dequeueReusableHeaderFooterViewWithIdentifier:@"footer"];
+    view.backgroundColor = [UIColor clearColor];
+    view.contentView.backgroundColor = [UIColor clearColor];
+    
+    if (![view viewWithTag:100]) {
+        GADBannerView *bannerView = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
+        bannerView.tag = 100;
+        [view addSubview:bannerView];
+        bannerView.translatesAutoresizingMaskIntoConstraints = NO;
+        [view addConstraint:[NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:bannerView attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0]];
+        [view addConstraint:[NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:bannerView attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0]];
+        [bannerView loadADWithRootViewController:self];
+    } else {
+        GADBannerView *bannerView = [view viewWithTag:100];
+        [bannerView loadADWithRootViewController:self];
+    }
+    
+    return view;
 }
 
 - (void)requestDataWithKeyword:(NSString *)keyword site:(NSString *)site pageIndex:(NSInteger)pageIndex {

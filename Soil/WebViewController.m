@@ -11,6 +11,7 @@
 @import GoogleMobileAds;
 #import "GADBannerView+LoadAction.h"
 #import "ResultsTableViewController.h"
+#import "RootTabBarViewController.h"
 
 @interface WebViewController ()
 
@@ -25,6 +26,15 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.bannerView loadADWithRootViewController:self];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    if ([self.tabBarController isKindOfClass:[RootTabBarViewController class]] && self.showInterstialAD) {
+        self.showInterstialAD = NO;
+        RootTabBarViewController *tabBarController = (RootTabBarViewController *)self.tabBarController;
+        [tabBarController presentInterstitialAd];
+    }
 }
 
 - (void)viewDidLoad {
