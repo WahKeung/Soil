@@ -81,6 +81,9 @@
     }
     MYPhotoBrowser *photoBrowser = [[MYPhotoBrowser alloc] initWithImageSourceArray:photoURLArray caption:nil delegate:self];
 //    photoBrowser.enableStatusBarHidden = NO;
+    photoBrowser.dismissHandler = ^{
+        [self showInterstial];
+    };
     photoBrowser.pageControlStyle = SYPhotoBrowserPageControlStyleLabel;
     photoBrowser.initialPageIndex = indexPath.item;
     [((AppDelegate *)[UIApplication sharedApplication].delegate).window.rootViewController presentViewController:photoBrowser animated:YES completion:nil];

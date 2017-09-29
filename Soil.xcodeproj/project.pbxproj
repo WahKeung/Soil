@@ -31,6 +31,8 @@
 		27090F3D1F7D286F00A50607 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27090F2A1F7D23E500A50607 /* SettingViewController.m */; };
 		27090F3E1F7D28C200A50607 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27090F0D1F7D23E500A50607 /* Images.xcassets */; };
 		27090F411F7D3F1F00A50607 /* MYPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 27090F401F7D3F1F00A50607 /* MYPhotoBrowser.m */; };
+		27090F601F7E34EE00A50607 /* AppDelegate+Config.m in Sources */ = {isa = PBXBuildFile; fileRef = 27090F5F1F7E34EE00A50607 /* AppDelegate+Config.m */; };
+		27090F631F7E376F00A50607 /* UserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 27090F621F7E376F00A50607 /* UserDefaults.m */; };
 		272866631F717E2000586AD3 /* MoreTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 272866621F717E2000586AD3 /* MoreTableViewController.m */; };
 		2747A2F71F76544C00F31979 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2747A2F61F76544C00F31979 /* StoreKit.framework */; };
 		2768F8C71F740E0900C44874 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2768F8C61F740E0800C44874 /* MessageUI.framework */; };
@@ -104,6 +106,10 @@
 		27090F2A1F7D23E500A50607 /* SettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		27090F3F1F7D3F1F00A50607 /* MYPhotoBrowser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYPhotoBrowser.h; sourceTree = "<group>"; };
 		27090F401F7D3F1F00A50607 /* MYPhotoBrowser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MYPhotoBrowser.m; sourceTree = "<group>"; };
+		27090F5E1F7E34EE00A50607 /* AppDelegate+Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+Config.h"; sourceTree = "<group>"; };
+		27090F5F1F7E34EE00A50607 /* AppDelegate+Config.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Config.m"; sourceTree = "<group>"; };
+		27090F611F7E376F00A50607 /* UserDefaults.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserDefaults.h; sourceTree = "<group>"; };
+		27090F621F7E376F00A50607 /* UserDefaults.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserDefaults.m; sourceTree = "<group>"; };
 		272866611F717E2000586AD3 /* MoreTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreTableViewController.h; sourceTree = "<group>"; };
 		272866621F717E2000586AD3 /* MoreTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreTableViewController.m; sourceTree = "<group>"; };
 		2747A2F61F76544C00F31979 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
@@ -249,6 +255,10 @@
 				277E963F1F7908A7004D5E7B /* KeywordEntity+CoreDataProperties.m */,
 				27AF10A01F6E958F00E6301E /* AppDelegate.h */,
 				27AF10A11F6E958F00E6301E /* AppDelegate.m */,
+				27090F5E1F7E34EE00A50607 /* AppDelegate+Config.h */,
+				27090F5F1F7E34EE00A50607 /* AppDelegate+Config.m */,
+				27090F611F7E376F00A50607 /* UserDefaults.h */,
+				27090F621F7E376F00A50607 /* UserDefaults.m */,
 				277E96241F790367004D5E7B /* MobClick+Configration.h */,
 				277E96251F790367004D5E7B /* MobClick+Configration.m */,
 				27AF10A31F6E958F00E6301E /* ViewController.h */,
@@ -456,12 +466,14 @@
 				27090F361F7D286F00A50607 /* SYChainRequestManager.m in Sources */,
 				27090F371F7D286F00A50607 /* SYBatchRequestManager.m in Sources */,
 				27090F381F7D286F00A50607 /* SYNetworkUtil.m in Sources */,
+				27090F601F7E34EE00A50607 /* AppDelegate+Config.m in Sources */,
 				27090F391F7D286F00A50607 /* SYNetworkConfig.m in Sources */,
 				27090F3A1F7D286F00A50607 /* SYChainRequest.m in Sources */,
 				27090F3B1F7D286F00A50607 /* SYNetworkCacheManager.m in Sources */,
 				27090F3C1F7D286F00A50607 /* MeiziCell.m in Sources */,
 				27090F3D1F7D286F00A50607 /* SettingViewController.m in Sources */,
 				27AF10A51F6E958F00E6301E /* ViewController.m in Sources */,
+				27090F631F7E376F00A50607 /* UserDefaults.m in Sources */,
 				27AF10EC1F70457900E6301E /* ResultModel.m in Sources */,
 				27B937BE1F73F1D000794C38 /* Soil.xcdatamodeld in Sources */,
 				277E96261F790367004D5E7B /* MobClick+Configration.m in Sources */,

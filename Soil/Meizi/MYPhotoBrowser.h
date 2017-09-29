@@ -10,4 +10,6 @@
 
 @interface MYPhotoBrowser : SYPhotoBrowser
 
+@property (nonatomic, copy) void (^dismissHandler)(void);
+
 @end

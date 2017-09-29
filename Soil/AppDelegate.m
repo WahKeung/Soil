@@ -11,6 +11,8 @@
 #import "MobClick+Configration.h"
 #import "SYNetwork.h"
 #import "RootTabBarViewController.h"
+#import "AppDelegate+Config.h"
+#import "UserDefaults.h"
 
 @interface AppDelegate ()
 
@@ -30,14 +32,7 @@
     //Set SVProgressHUD
     [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
     
-    
-    RootTabBarViewController *root = (RootTabBarViewController *)self.window.rootViewController;
-    NSMutableArray *arr = [NSMutableArray arrayWithArray:root.viewControllers];
-    
-    UIStoryboard *meiziStoryboard = [UIStoryboard storyboardWithName:@"Meizi" bundle:nil];
-    UIViewController *meizi = meiziStoryboard.instantiateInitialViewController;
-    [arr insertObject:meizi atIndex:1];
-//    root.viewControllers = arr;
+    [self configForShow];
     
     return YES;
 }

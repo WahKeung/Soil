@@ -185,8 +185,8 @@
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
     
-    static NSString *urlString = @"http://yikaotuan.cn/public/index.php";
-    NSString *value = [NSString stringWithFormat:@"/index/search/index/title/%@/site/%@/page/%zd", keyword, site, pageIndex];
+    static NSString *urlString = @"http://yikaotuan.cn/index.php";
+    NSString *value = [NSString stringWithFormat:@"/index/search/index/site/%@/title/%@/page/%zd", site, keyword, pageIndex];
     NSDictionary *parameters = @{@"s":value};
     [manager GET:urlString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         [self.refreshControl endRefreshing];

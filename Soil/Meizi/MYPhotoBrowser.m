@@ -14,5 +14,15 @@
 
 @implementation MYPhotoBrowser
 
+- (void)dismissViewControllerAnimated:(BOOL)flag completion:(void (^)(void))completion {
+    [super dismissViewControllerAnimated:flag completion:^(void){
+        if (completion) {
+            completion();
+        }
+        if (self.dismissHandler) {
+            self.dismissHandler();
+        }
+    }];
+}
 
 @end
