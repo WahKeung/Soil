@@ -22,6 +22,7 @@
 
 @property (nonatomic, strong) NSMutableArray *dataArray;
 @property (nonatomic, assign) NSInteger pageIndex;
+@property (nonatomic, assign) BOOL hasShowRate;
 
 @end
 
@@ -51,7 +52,7 @@
     [super viewDidAppear:animated];
     
     UserDefaults *user = [UserDefaults userDefault];
-    if (user.showRate && !user.hasShowRate) {
+    if (user.showRate) { // && !user.hasShowRate
         [self showRate];
         user.hasShowRate = YES;
     } else {
@@ -63,6 +64,10 @@
 }
 
 - (void)showRate {
+    if (self.hasShowRate) {
+        return;
+    }
+    self.hasShowRate = YES;
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"好评解锁资源" message:@"撸友们，5星好评带有“福利”字眼，将会有更多的资源和惊喜等着你！机会仅此一次！" preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"残忍拒绝" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         [self showInterstitialAd];
@@ -173,7 +178,10 @@
     ResultModel *model = self.dataArray[indexPath.row];
     if (!model.isAD) {
         ResultModel *model = self.dataArray[indexPath.row];
-        [self showWebControllerWithUrlString:model.url andTitle:model.title];
+        RootTabBarViewController *root = (RootTabBarViewController *)self.tabBarController;
+        [root presentInterstitialAdWithCompletionHandler:^{
+            [self showWebControllerWithUrlString:model.url andTitle:model.title];
+        }];
     }
 }
 

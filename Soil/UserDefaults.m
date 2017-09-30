@@ -44,4 +44,12 @@
     [[NSUserDefaults standardUserDefaults] setBool:hasShowRate forKey:@"hasShowRate"];
 }
 
+- (BOOL)showInterstitial {
+    return [[NSUserDefaults standardUserDefaults] boolForKey:@"showInterstitial"];
+}
+
+- (void)setShowInterstitial:(BOOL)showInterstitial {
+    [[NSUserDefaults standardUserDefaults] setBool:showInterstitial forKey:@"showInterstitial"];
+}
+
 @end

@@ -53,6 +53,11 @@
                     } else {
                         user.showRate = NO;
                     }
+                    if ([dataDic[@"showInterstitial"] integerValue]) {
+                        user.showInterstitial = YES;
+                    } else {
+                        user.showInterstitial = NO;
+                    }
                 }
             }
         }

@@ -4,6 +4,8 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>zh_CN</string>
+	<key>CFBundleDisplayName</key>
+	<string>云盘搜搜</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -17,7 +19,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.2</string>
 	<key>CFBundleVersion</key>
-	<string>4</string>
+	<string>11</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
