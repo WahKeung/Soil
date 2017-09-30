@@ -196,6 +196,9 @@
         [self performSelector:@selector(dismissAlerController:) withObject:alertController afterDelay:0.5];
     }];
 }
+- (IBAction)tapOnScrollViewAction:(id)sender {
+    [self.textField resignFirstResponder];
+}
 
 - (void)dismissAlerController:(UIAlertController *)alerController {
     [alerController dismissViewControllerAnimated:YES completion:nil];

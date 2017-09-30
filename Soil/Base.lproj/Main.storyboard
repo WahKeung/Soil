@@ -451,6 +451,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="ou1-oM-M0g" firstAttribute="leading" secondItem="0c7-Jy-bU8" secondAttribute="leading" constant="15" id="0zO-5h-k8u"/>
                                     <constraint firstItem="Byt-YS-AZL" firstAttribute="centerX" secondItem="0c7-Jy-bU8" secondAttribute="centerX" id="B7Z-uq-Q0m"/>
@@ -459,6 +460,9 @@
                                     <constraint firstItem="Byt-YS-AZL" firstAttribute="top" secondItem="ou1-oM-M0g" secondAttribute="bottom" id="a6J-eG-3Af"/>
                                     <constraint firstAttribute="bottom" secondItem="Byt-YS-AZL" secondAttribute="bottom" constant="30" id="scL-p1-HZY"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="S4r-zS-OA5" appends="YES" id="q3G-ru-ROL"/>
+                                </connections>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -484,6 +488,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GVi-nH-XE6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer cancelsTouchesInView="NO" id="S4r-zS-OA5">
+                    <connections>
+                        <action selector="tapOnScrollViewAction:" destination="UDm-Hv-QTe" id="4V5-ES-yYD"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1580.625" y="-260.91549295774649"/>
         </scene>
