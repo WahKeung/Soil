@@ -8,27 +8,41 @@
 
 #import "RootTabBarViewController.h"
 #import "SYPhotoBrowser.h"
+#import "UserDefaults.h"
 
 @interface RootTabBarViewController ()<GADInterstitialDelegate>
 
 @property (nonatomic, strong) SYPhotoBrowser *photoBrowser;
 @property (nonatomic, assign) BOOL needToPresentPhotos;
+@property (nonatomic, copy) void (^handler)(void);
 
 @end
 
 @implementation RootTabBarViewController
 
 - (void)presentInterstitialAd {
+    UserDefaults *user = [UserDefaults userDefault];
+    if (!user.showInterstitial) {
+        return;
+    }
+    
+    NSString *unitID = nil;
+#ifdef DEBUG
+    unitID = @"ca-app-pub-3940256099942544/1033173712";
+#else
+    unitID = @"ca-app-pub-3940256099942544/4270592515";
+#endif
+    
     if (!self.interstitial) {
         self.interstitial = [[GADInterstitial alloc]
-                             initWithAdUnitID:@"ca-app-pub-3925127038024110/8047051921"];
+                             initWithAdUnitID:unitID];
         self.interstitial.delegate = self;
         GADRequest *request = [GADRequest request];
         [self.interstitial loadRequest:request];
     } else {
         if (self.interstitial.hasBeenUsed) {
             self.interstitial = [[GADInterstitial alloc]
-                                 initWithAdUnitID:@"ca-app-pub-3925127038024110/8047051921"];
+                                 initWithAdUnitID:unitID];
             self.interstitial.delegate = self;
             GADRequest *request = [GADRequest request];
             [self.interstitial loadRequest:request];
@@ -36,6 +50,18 @@
             if (!self.presentedViewController) {
                 [self.interstitial presentFromRootViewController:self];
             }
+        }
+    }
+}
+
+- (void)presentInterstitialAdWithCompletionHandler:(void (^)(void))handler {
+    if (handler) {
+        UserDefaults *user = [UserDefaults userDefault];
+        if (user.showInterstitial) {
+            self.handler = handler;
+            [self presentInterstitialAd];
+        } else {
+            handler();
         }
     }
 }
@@ -52,6 +78,10 @@
 - (void)interstitial:(GADInterstitial *)ad
 didFailToReceiveAdWithError:(GADRequestError *)error {
     NSLog(@"interstitial:didFailToReceiveAdWithError: %@", [error localizedDescription]);
+    if (self.handler) {
+        self.handler();
+        self.handler = nil;
+    }
 }
 
 /// Tells the delegate that an interstitial will be presented.
@@ -73,6 +103,10 @@ didFailToReceiveAdWithError:(GADRequestError *)error {
             self.photoBrowser = nil;
         }];
     }
+    if (self.handler) {
+        self.handler();
+        self.handler = nil;
+    }
 }
 
 /// Tells the delegate that a user click will open another app
@@ -81,24 +115,39 @@ didFailToReceiveAdWithError:(GADRequestError *)error {
     NSLog(@"interstitialWillLeaveApplication");
 }
 
-- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
-    static NSInteger clickCount = 0;
+- (void)setSelectedIndex:(NSUInteger)selectedIndex {
+    NSLog(@"setSelectedIndex");
+    [super setSelectedIndex:selectedIndex];
+}
+
+- (void)setSelectedViewController:(__kindof UIViewController *)selectedViewController {
+    NSLog(@"setSelectedViewController");
+    static NSInteger clickCount = 1;
     if (clickCount==1) {
-        [self presentInterstitialAd];
+        [self presentInterstitialAdWithCompletionHandler:^{
+            [super setSelectedViewController:selectedViewController];
+        }];
         clickCount=0;
     } else {
         clickCount++;
+        [super setSelectedViewController:selectedViewController];
     }
 }
 
+- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
+    
+}
+
 - (void)presentViewController:(UIViewController *)viewControllerToPresent animated:(BOOL)flag completion:(void (^)(void))completion {
-    if ([viewControllerToPresent isKindOfClass:[SYPhotoBrowser class]] && self.needToPresentPhotos==NO) {
-        self.needToPresentPhotos = YES;
-        self.photoBrowser = (SYPhotoBrowser *)viewControllerToPresent;
-        [self presentInterstitialAd];
-    } else {
-        [super presentViewController:viewControllerToPresent animated:flag completion:completion];
-    }
+    [super presentViewController:viewControllerToPresent animated:flag completion:completion];
+
+//    if ([viewControllerToPresent isKindOfClass:[SYPhotoBrowser class]] && self.needToPresentPhotos==NO) {
+//        self.needToPresentPhotos = YES;
+//        self.photoBrowser = (SYPhotoBrowser *)viewControllerToPresent;
+//        [self presentInterstitialAd];
+//    } else {
+//        [super presentViewController:viewControllerToPresent animated:flag completion:completion];
+//    }
 }
 
 @end

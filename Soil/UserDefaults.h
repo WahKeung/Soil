@@ -12,8 +12,10 @@
 
 + (instancetype)userDefault;
 
-@property (nonatomic, assign) BOOL showRate;
 @property (nonatomic, assign) BOOL hasShowRate;
+
+@property (nonatomic, assign) BOOL showRate;
 @property (nonatomic, assign) BOOL showBody;
+@property (nonatomic, assign) BOOL showInterstitial;
 
 @end
