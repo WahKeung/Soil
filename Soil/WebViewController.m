@@ -8,25 +8,39 @@
 
 #import "WebViewController.h"
 #import <WebKit/WebKit.h>
+@import GoogleMobileAds;
+#import "GADBannerView+LoadAction.h"
+#import "ResultsTableViewController.h"
+#import "RootTabBarViewController.h"
 
 @interface WebViewController ()
 
 @property (nonatomic, strong) WKWebView *webView;
 
+@property (weak, nonatomic) IBOutlet GADBannerView *bannerView;
+
 @end
 
 @implementation WebViewController
 
-- (void)loadView {
-    WKWebViewConfiguration *configuration = [[WKWebViewConfiguration alloc] init];
-    WKWebView *webView = [[WKWebView alloc] initWithFrame:CGRectZero configuration:configuration];
-    
-    self.view = webView;
-    self.webView = webView;
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.bannerView loadADWithRootViewController:self];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    if ([self.tabBarController isKindOfClass:[RootTabBarViewController class]] && self.showInterstialAD) {
+        self.showInterstialAD = NO;
+        RootTabBarViewController *tabBarController = (RootTabBarViewController *)self.tabBarController;
+        [tabBarController presentInterstitialAd];
+    }
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self layoutAction];
+    [self.view bringSubviewToFront:self.bannerView];
     
     if (self.urlString.length>0) {
         NSURL *url = [NSURL URLWithString:self.urlString];
@@ -37,6 +51,24 @@
         NSString *htmlString = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
         [self.webView loadHTMLString:htmlString baseURL:nil];
     }
+}
+
+- (void)layoutAction {
+    WKWebViewConfiguration *configuration = [[WKWebViewConfiguration alloc] init];
+    WKWebView *webView = [[WKWebView alloc] initWithFrame:self.view.bounds configuration:configuration];
+    
+    [self.view addSubview:webView];
+    self.webView = webView;
+    self.webView.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    NSDictionary *views = @{@"webView":webView};
+    NSArray *constraitsH = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[webView]|" options:NSLayoutFormatDirectionLeadingToTrailing metrics:nil views:views];
+    NSArray *constraitsV = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[webView]|" options:NSLayoutFormatDirectionLeadingToTrailing metrics:nil views:views];
+    [self.view addConstraints:constraitsH];
+    [self.view addConstraints:constraitsV];
+    
+    self.webView.scrollView.contentInset = UIEdgeInsetsMake(0, 0, 66, 0);
+    self.webView.scrollView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 66, 0);
 }
 
 - (void)didReceiveMemoryWarning {

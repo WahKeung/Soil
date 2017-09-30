@@ -9,6 +9,10 @@
 #import "AppDelegate.h"
 @import GoogleMobileAds;
 #import "MobClick+Configration.h"
+#import "SYNetwork.h"
+#import "RootTabBarViewController.h"
+#import "AppDelegate+Config.h"
+#import "UserDefaults.h"
 
 @interface AppDelegate ()
 
@@ -20,7 +24,16 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     [GADMobileAds configureWithApplicationID:@"ca-app-pub-3925127038024110~6432262514"];
-    [MobClick startServiceWithAppKey:@""];
+    [MobClick startServiceWithAppKey:@"59c9ce476e27a467410003a2"];
+    
+    //Set Network
+    [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
+    
+    //Set SVProgressHUD
+    [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
+    
+    [self configForShow];
+    
     return YES;
 }
 

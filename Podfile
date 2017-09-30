@@ -9,5 +9,12 @@ target 'Soil' do
   pod 'AFNetworking', '~> 3.0'
   pod 'Google-Mobile-Ads-SDK'
   pod 'UMengAnalytics-NO-IDFA'
+  pod 'YYCache'
+  pod 'MJRefresh'
+  pod 'MJExtension'
+  pod 'SDWebImage'
+  pod 'SVProgressHUD'
+  pod 'UIActivityIndicator-for-SDWebImage'
+  pod 'SYPhotoBrowser'
 
 end

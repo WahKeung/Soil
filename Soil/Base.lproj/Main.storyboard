@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="cxs-a1-HTR">
-                            <rect key="frame" x="0.0" y="389" width="320" height="80"/>
+                            <rect key="frame" x="0.0" y="345" width="320" height="80"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZZH-dK-Hy0" customClass="GADBannerView">
@@ -74,8 +74,8 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="appformike@163.com" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="43a-q0-3Sx">
-                                                    <rect key="frame" x="138" y="12" width="167" height="20.5"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="qwe123#$%@163.com" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="43a-q0-3Sx">
+                                                    <rect key="frame" x="131" y="12" width="174" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -132,25 +132,8 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="ci9-4Z-utv" style="IBUITableViewCellStyleDefault" id="B1l-oP-2nI">
-                                        <rect key="frame" x="0.0" y="283" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="B1l-oP-2nI" id="oGZ-5h-Pbn">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="亲，给个好评嘛～" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ci9-4Z-utv">
-                                                    <rect key="frame" x="16" y="0.0" width="289" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="duJ-cK-wl6" style="IBUITableViewCellStyleDefault" id="jSI-83-7wc">
-                                        <rect key="frame" x="0.0" y="327" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="283" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jSI-83-7wc" id="gO1-mS-9z8">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
@@ -194,8 +177,30 @@
                     <view key="view" contentMode="scaleToFill" id="YHJ-0y-k97">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ork-n2-FuE" customClass="GADBannerView">
+                                <rect key="frame" x="0.0" y="461" width="320" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="a6o-n9-zpf"/>
+                                    <constraint firstAttribute="height" constant="50" id="qwk-83-h2i"/>
+                                </constraints>
+                            </view>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Zcv-Qu-vQe">
+                                <rect key="frame" x="150" y="274" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Ork-n2-FuE" firstAttribute="centerX" secondItem="YHJ-0y-k97" secondAttribute="centerX" id="0AY-bt-tfb"/>
+                            <constraint firstItem="Zcv-Qu-vQe" firstAttribute="centerY" secondItem="YHJ-0y-k97" secondAttribute="centerY" id="1KC-bO-Q2I"/>
+                            <constraint firstItem="Zcv-Qu-vQe" firstAttribute="centerX" secondItem="YHJ-0y-k97" secondAttribute="centerX" id="Vza-Zp-rEd"/>
+                            <constraint firstItem="jWs-Zq-zxH" firstAttribute="top" secondItem="Ork-n2-FuE" secondAttribute="bottom" constant="8" id="Xvi-7T-Zte"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="bannerView" destination="Ork-n2-FuE" id="28g-1E-V0p"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l2K-DK-q6j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -218,10 +223,10 @@
             </objects>
             <point key="canvasLocation" x="628" y="501"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Root Tab Bar View Controller-->
         <scene sceneID="61o-EG-raM">
             <objects>
-                <tabBarController id="Tks-W6-weg" sceneMemberID="viewController">
+                <tabBarController id="Tks-W6-weg" customClass="RootTabBarViewController" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="WFm-UG-7Bd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -481,29 +486,29 @@
         <scene sceneID="H9h-2E-8Oz">
             <objects>
                 <tableViewController id="zEU-cg-fsv" customClass="ResultsTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="108" sectionHeaderHeight="28" sectionFooterHeight="28" id="7Jo-yq-eWp">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="108" sectionHeaderHeight="28" sectionFooterHeight="28" id="7Jo-yq-eWp">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ResultTableViewCell" rowHeight="108" id="ceO-9e-VaQ" customClass="ResultTableViewCell">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ResultTableViewCell" rowHeight="108" id="ceO-9e-VaQ" customClass="ResultTableViewCell">
                                 <rect key="frame" x="0.0" y="28" width="320" height="108"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ceO-9e-VaQ" id="1ke-Lj-Cpn">
-                                    <rect key="frame" x="0.0" y="0.0" width="287" height="107.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="108"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="49L-FX-avp">
-                                            <rect key="frame" x="15" y="8" width="264" height="88"/>
+                                            <rect key="frame" x="15" y="8" width="297" height="88"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="武藤兰_百度百科" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nu5-RU-XfN">
-                                                    <rect key="frame" x="0.0" y="0.0" width="264" height="17"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="297" height="17"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GCu-5c-Xok">
-                                                    <rect key="frame" x="0.0" y="21" width="264" height="67"/>
+                                                    <rect key="frame" x="0.0" y="21" width="297" height="67"/>
                                                     <string key="text">武藤兰[1]  （日语：あさかわ らん），1980年09月04日出生于日本神奈川县，初期曾使用过清水优香 （Shimizu Yuka）的艺名，后名武藤兰（Mutou Ran），日本AV女优，隶属于新日本企画（新日本プロジェクト，又名maedamodels）旗下。[2] 
 在2002年共有212部AV作品，并获得吉尼斯世界记录认证为“一年之内售出最多色情影片的女演员与制片公司”世界记录头衔拥有者，2003年更是创记录的出演了304部AV作品，是AV界年度最多作品记录的保持者。[3]  但由于武藤兰在该年底宣布息影，因此制片公司并未替她申请新的世界记录认证。</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -524,6 +529,49 @@
                                     <outlet property="titleItemLabel" destination="Nu5-RU-XfN" id="cEq-gy-B80"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ADTableTableViewCell" rowHeight="50" id="eEs-nG-ckZ" customClass="ADTableTableViewCell">
+                                <rect key="frame" x="0.0" y="136" width="320" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eEs-nG-ckZ" id="hf5-wo-Va9">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xka-KE-fjU" customClass="GADNativeExpressAdView">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="Xka-KE-fjU" secondAttribute="trailing" id="Eod-q7-Fnk"/>
+                                        <constraint firstItem="Xka-KE-fjU" firstAttribute="leading" secondItem="hf5-wo-Va9" secondAttribute="leading" id="RD9-Hf-OO0"/>
+                                        <constraint firstItem="Xka-KE-fjU" firstAttribute="top" secondItem="hf5-wo-Va9" secondAttribute="top" id="Yn2-jv-8RO"/>
+                                        <constraint firstAttribute="bottom" secondItem="Xka-KE-fjU" secondAttribute="bottom" id="yyw-bU-Hgk"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="nativeExpressAdView" destination="Xka-KE-fjU" id="1BO-cb-FAp"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="noResults" id="78b-jy-awV">
+                                <rect key="frame" x="0.0" y="186" width="320" height="108"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="78b-jy-awV" id="nVi-cb-t25">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="108"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="没有结果" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9qx-zl-Meq">
+                                            <rect key="frame" x="125.5" y="44" width="69.5" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="9qx-zl-Meq" firstAttribute="centerX" secondItem="nVi-cb-t25" secondAttribute="centerX" id="Ffk-Vj-Ajx"/>
+                                        <constraint firstItem="9qx-zl-Meq" firstAttribute="centerY" secondItem="nVi-cb-t25" secondAttribute="centerY" id="ztm-rp-hcI"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
                         </prototypes>
                         <sections/>
                         <connections>
@@ -532,10 +580,14 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="&quot;武藤兰&quot;结果" id="C8a-lA-D9g"/>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="iOV-Wv-rnZ">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </refreshControl>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Txz-46-xFU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2364" y="-260.41979010494754"/>
+            <point key="canvasLocation" x="2362.5" y="-260.91549295774649"/>
         </scene>
     </scenes>
     <resources>
