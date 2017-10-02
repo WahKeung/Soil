@@ -148,22 +148,17 @@
 }
 
 - (IBAction)searchAction:(id)sender {
-//    RootTabBarViewController *root = (RootTabBarViewController *)self.tabBarController;
-//    [root presentInterstitialAdWithCompletionHandler:^{
-//        if (self.textField.text.length<1) {
-//            [self showHint:@"请输入搜索关键字"];
-//        } else {
-//            [self performSegueWithIdentifier:@"segue.show.ResultsTableViewController" sender:nil];
-//            [self insertKeyword:self.textField.text];
-//        }
-//    }];
-    if (self.textField.text.length<1) {
-        [self showHint:@"请输入搜索关键字"];
-    } else {
-        [self performSegueWithIdentifier:@"segue.show.ResultsTableViewController" sender:nil];
-        [self insertKeyword:self.textField.text];
-    }
+    RootTabBarViewController *root = (RootTabBarViewController *)self.tabBarController;
+    [root presentInterstitialAdFirstIfReadyWithCompletionHandler:^{
+        if (self.textField.text.length<1) {
+            [self showHint:@"请输入搜索关键字"];
+        } else {
+            [self performSegueWithIdentifier:@"segue.show.ResultsTableViewController" sender:nil];
+            [self insertKeyword:self.textField.text];
+        }
+    }];
 }
+
 - (IBAction)changeSiteAction:(id)sender {
     NSDictionary *sites = @{@"百度网盘":@"pan.baidu.com",
                             @"115网盘":@"115.com",
@@ -185,14 +180,19 @@
         [alertController addAction:action];
     }];
     
-    [self presentViewController:alertController animated:YES completion:nil];
+    if ([self.tabBarController isKindOfClass:[RootTabBarViewController class]]) {
+        RootTabBarViewController *root = (RootTabBarViewController *)self.tabBarController;
+        [root presentInterstitialAdFirstIfReadyWithCompletionHandler:^{
+            [self presentViewController:alertController animated:YES completion:nil];
+        }];
+    }
     [self.bannerView loadADWithRootViewController:self];
 }
 
 - (void)showInterstitialAd {
     if ([self.tabBarController isKindOfClass:[RootTabBarViewController class]]) {
         RootTabBarViewController *rootTabBarController = (RootTabBarViewController *)self.tabBarController;
-        [rootTabBarController presentInterstitialAd];
+        [rootTabBarController presentInterstitialAdFirstIfReadyWithCompletionHandler:nil];
     }
 }
 
@@ -219,26 +219,25 @@
     for (UIAlertAction *action in @[item0Action, cancelAction]) {
         [alertController addAction:action];
     }
-    [self presentViewController:alertController animated:YES completion:nil];
+    if ([self.tabBarController isKindOfClass:[RootTabBarViewController class]]) {
+        RootTabBarViewController *root = (RootTabBarViewController *)self.tabBarController;
+        [root presentInterstitialAdFirstIfReadyWithCompletionHandler:^{
+            [self presentViewController:alertController animated:YES completion:nil];
+        }];
+    }
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
-//    RootTabBarViewController *root = (RootTabBarViewController *)self.tabBarController;
-//    [root presentInterstitialAdWithCompletionHandler:^{
-//        if (self.textField.text.length<1) {
-//            [self showHint:@"请输入搜索关键字"];
-//        } else {
-//            [self performSegueWithIdentifier:@"segue.show.ResultsTableViewController" sender:nil];
-//            [self insertKeyword:self.textField.text];
-//        }
-//    }];
-    if (self.textField.text.length<1) {
-        [self showHint:@"请输入搜索关键字"];
-    } else {
-        [self performSegueWithIdentifier:@"segue.show.ResultsTableViewController" sender:nil];
-        [self insertKeyword:self.textField.text];
-    }
+    RootTabBarViewController *root = (RootTabBarViewController *)self.tabBarController;
+    [root presentInterstitialAdFirstIfReadyWithCompletionHandler:^{
+        if (self.textField.text.length<1) {
+            [self showHint:@"请输入搜索关键字"];
+        } else {
+            [self performSegueWithIdentifier:@"segue.show.ResultsTableViewController" sender:nil];
+            [self insertKeyword:self.textField.text];
+        }
+    }];
     return YES;
 }
 
@@ -257,11 +256,9 @@
     [self.textField resignFirstResponder];
     KeywordEntity *entity = self.historyArray[indexPath.item];
     RootTabBarViewController *root = (RootTabBarViewController *)self.tabBarController;
-//    [root presentInterstitialAdWithCompletionHandler:^{
-//        [self performSegueWithIdentifier:@"segue.show.ResultsTableViewController" sender:entity.value];
-//    }];
-    [self performSegueWithIdentifier:@"segue.show.ResultsTableViewController" sender:entity.value];
-    [root presentInterstitialAd];
+    [root presentInterstitialAdFirstIfReadyWithCompletionHandler:^{
+        [self performSegueWithIdentifier:@"segue.show.ResultsTableViewController" sender:entity.value];
+    }];
 }
 
 #pragma mark - UICollectionViewDataSource

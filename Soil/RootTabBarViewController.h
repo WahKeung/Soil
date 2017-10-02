@@ -11,8 +11,7 @@
 
 @interface RootTabBarViewController : UITabBarController
 
-- (void)presentInterstitialAd;
-- (void)presentInterstitialAdWithCompletionHandler:(void(^)(void))handler;
+- (void)presentInterstitialAdFirstIfReadyWithCompletionHandler:(void(^)(void))handler;
 @property (nonatomic, strong) GADInterstitial *interstitial;
 
 @end

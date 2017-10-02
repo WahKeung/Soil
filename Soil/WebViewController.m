@@ -32,8 +32,8 @@
     [super viewDidAppear:animated];
     if ([self.tabBarController isKindOfClass:[RootTabBarViewController class]] && self.showInterstialAD) {
         self.showInterstialAD = NO;
-        RootTabBarViewController *tabBarController = (RootTabBarViewController *)self.tabBarController;
-        [tabBarController presentInterstitialAd];
+        RootTabBarViewController *root = (RootTabBarViewController *)self.tabBarController;
+        [root presentInterstitialAdFirstIfReadyWithCompletionHandler:nil];
     }
 }
 

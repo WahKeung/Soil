@@ -18,10 +18,30 @@
 
 @implementation RootTabBarViewController
 
-- (void)presentInterstitialAd {
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.interstitial = [self createAndLoadInterstitial];
+}
+
+- (void)presentInterstitialAdFirstIfReadyWithCompletionHandler:(void (^)(void))handler {
     UserDefaults *user = [UserDefaults userDefault];
-    if (!user.showInterstitial) {
-        return;
+    if (user.showInterstitial) {
+        if (handler) {
+            self.handler = handler;
+        }
+        if (self.interstitial.isReady && !self.presentedViewController) {
+            [self.interstitial presentFromRootViewController:self];
+        } else {
+            NSLog(@"Ad wasn't ready");
+        };
+    } else {
+        handler();
+    }
+}
+
+- (GADInterstitial *)createAndLoadInterstitial {
+    if (self.interstitial && !self.interstitial.hasBeenUsed) {
+        return _interstitial;
     }
     
     NSString *unitID = nil;
@@ -30,51 +50,16 @@
 #else
     unitID = @"ca-app-pub-3940256099942544/4270592515";
 #endif
-    
-    if (!self.interstitial) {
-        self.interstitial = [[GADInterstitial alloc]
-                             initWithAdUnitID:unitID];
-        self.interstitial.delegate = self;
-        GADRequest *request = [GADRequest request];
-        [self.interstitial loadRequest:request];
-    } else {
-        if (self.interstitial.hasBeenUsed) {
-            self.interstitial = [[GADInterstitial alloc]
-                                 initWithAdUnitID:unitID];
-            self.interstitial.delegate = self;
-            GADRequest *request = [GADRequest request];
-            [self.interstitial loadRequest:request];
-        } else {
-            if (!self.presentedViewController) {
-                [self.interstitial presentFromRootViewController:self];
-            }
-        }
-    }
-}
-
-- (void)presentInterstitialAdWithCompletionHandler:(void (^)(void))handler {
-    if (handler) {
-        UserDefaults *user = [UserDefaults userDefault];
-        if (user.showInterstitial) {
-            self.handler = handler;
-            [self presentInterstitialAd];
-        } else {
-            handler();
-        }
-    }
+    GADInterstitial *interstitial =
+    [[GADInterstitial alloc] initWithAdUnitID:unitID];
+    interstitial.delegate = self;
+    [interstitial loadRequest:[GADRequest request]];
+    return interstitial;
 }
 
 /// Tells the delegate an ad request succeeded.
 - (void)interstitialDidReceiveAd:(GADInterstitial *)ad {
     NSLog(@"interstitialDidReceiveAd");
-    if (self.interstitial.isReady && !self.presentedViewController) {
-        [self.interstitial presentFromRootViewController:self];
-    } else {
-        if (self.handler) {
-            self.handler();
-            self.handler = nil;
-        }
-    }
 }
 
 /// Tells the delegate an ad request failed.
@@ -107,6 +92,7 @@ didFailToReceiveAdWithError:(GADRequestError *)error {
 /// Tells the delegate the interstitial had been animated off the screen.
 - (void)interstitialDidDismissScreen:(GADInterstitial *)ad {
     NSLog(@"interstitialDidDismissScreen");
+    self.interstitial = [self createAndLoadInterstitial];
     if (self.handler) {
         self.handler();
         self.handler = nil;
@@ -119,33 +105,19 @@ didFailToReceiveAdWithError:(GADRequestError *)error {
     NSLog(@"interstitialWillLeaveApplication");
 }
 
-- (void)setSelectedIndex:(NSUInteger)selectedIndex {
-    NSLog(@"setSelectedIndex");
-    [super setSelectedIndex:selectedIndex];
-}
 
 - (void)setSelectedViewController:(__kindof UIViewController *)selectedViewController {
     NSLog(@"setSelectedViewController");
     static NSInteger clickCount = 1;
     if (clickCount==1) {
-//        [self presentInterstitialAdWithCompletionHandler:^{
-//            [super setSelectedViewController:selectedViewController];
-//        }];
-        [super setSelectedViewController:selectedViewController];
-        [self presentInterstitialAd];
+        [self presentInterstitialAdFirstIfReadyWithCompletionHandler:^{
+            [super setSelectedViewController:selectedViewController];
+        }];
         clickCount=0;
     } else {
         clickCount++;
         [super setSelectedViewController:selectedViewController];
     }
-}
-
-- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
-    
-}
-
-- (void)presentViewController:(UIViewController *)viewControllerToPresent animated:(BOOL)flag completion:(void (^)(void))completion {
-    [super presentViewController:viewControllerToPresent animated:flag completion:completion];
 }
 
 @end

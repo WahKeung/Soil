@@ -94,8 +94,8 @@
 
 - (void)showInterstitialAd {
     if ([self.tabBarController isKindOfClass:[RootTabBarViewController class]]) {
-        RootTabBarViewController *rootTabBarController = (RootTabBarViewController *)self.tabBarController;
-        [rootTabBarController presentInterstitialAd];
+        RootTabBarViewController *root = (RootTabBarViewController *)self.tabBarController;
+        [root presentInterstitialAdFirstIfReadyWithCompletionHandler:nil];
     }
 }
 
@@ -178,11 +178,10 @@
     ResultModel *model = self.dataArray[indexPath.row];
     if (!model.isAD) {
         ResultModel *model = self.dataArray[indexPath.row];
-//        RootTabBarViewController *root = (RootTabBarViewController *)self.tabBarController;
-//        [root presentInterstitialAdWithCompletionHandler:^{
-//            [self showWebControllerWithUrlString:model.url andTitle:model.title];
-//        }];
-        [self showWebControllerWithUrlString:model.url andTitle:model.title];
+        RootTabBarViewController *root = (RootTabBarViewController *)self.tabBarController;
+        [root presentInterstitialAdFirstIfReadyWithCompletionHandler:^{
+            [self showWebControllerWithUrlString:model.url andTitle:model.title];
+        }];
     }
 }
 

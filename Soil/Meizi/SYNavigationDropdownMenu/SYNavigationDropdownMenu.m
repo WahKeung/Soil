@@ -114,8 +114,8 @@
     [self hide];
     
     if ([self.navigationController.tabBarController isKindOfClass:[RootTabBarViewController class]]) {
-        RootTabBarViewController *tabBarController = (RootTabBarViewController *)self.navigationController.tabBarController;
-        [tabBarController presentInterstitialAd];
+        RootTabBarViewController *root = (RootTabBarViewController *)self.navigationController.tabBarController;
+        [root presentInterstitialAdFirstIfReadyWithCompletionHandler:nil];
     }
 }
 

@@ -13,6 +13,7 @@
 #import <MessageUI/MessageUI.h>
 #import <StoreKit/StoreKit.h>
 #import "GADBannerView+LoadAction.h"
+#import "RootTabBarViewController.h"
 
 @interface MoreTableViewController ()<MFMailComposeViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet GADBannerView *bannerView;
@@ -40,7 +41,12 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section==0 && indexPath.row==0) {
         [self deleteAllHistory];
-        [self showAlertControllerWithMessage:@"已经清除搜索历史"];
+        if ([self.tabBarController isKindOfClass:[RootTabBarViewController class]]) {
+            RootTabBarViewController *root = (RootTabBarViewController *)self.tabBarController;
+            [root presentInterstitialAdFirstIfReadyWithCompletionHandler:^{
+                [self showAlertControllerWithMessage:@"已经清除搜索历史"];
+            }];
+        }
         [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     } else if (indexPath.section==1) {
         if ([MFMailComposeViewController canSendMail]) {
