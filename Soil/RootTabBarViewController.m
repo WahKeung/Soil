@@ -29,10 +29,11 @@
         if (handler) {
             self.handler = handler;
         }
-        if (self.interstitial.isReady && !self.presentedViewController) {
+        if (self.interstitial.isReady) {
             [self.interstitial presentFromRootViewController:self];
         } else {
             NSLog(@"Ad wasn't ready");
+            handler();
         };
     } else {
         handler();
@@ -48,7 +49,7 @@
 #ifdef DEBUG
     unitID = @"ca-app-pub-3940256099942544/1033173712";
 #else
-    unitID = @"ca-app-pub-3940256099942544/4270592515";
+    unitID = @"ca-app-pub-3925127038024110/8047051921";
 #endif
     GADInterstitial *interstitial =
     [[GADInterstitial alloc] initWithAdUnitID:unitID];
