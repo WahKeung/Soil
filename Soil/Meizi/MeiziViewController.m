@@ -88,10 +88,12 @@
     photoBrowser.initialPageIndex = indexPath.item;
     
     RootTabBarViewController *root = (RootTabBarViewController *)self.tabBarController;
-    [root presentInterstitialAdWithCompletionHandler:^{
-        [((AppDelegate *)[UIApplication sharedApplication].delegate).window.rootViewController presentViewController:photoBrowser animated:YES completion:nil];
-    }];
+//    [root presentInterstitialAdWithCompletionHandler:^{
+//        [((AppDelegate *)[UIApplication sharedApplication].delegate).window.rootViewController presentViewController:photoBrowser animated:YES completion:nil];
+//    }];
     
+    [root presentInterstitialAd];
+    [((AppDelegate *)[UIApplication sharedApplication].delegate).window.rootViewController presentViewController:photoBrowser animated:YES completion:nil];
 }
 
 #pragma mark - NavigationDropdownMenu DataSource
@@ -134,14 +136,22 @@
 
 - (void)loadMoreMeizi {
     RootTabBarViewController *tabBarController = (RootTabBarViewController *)self.tabBarController;
-    [tabBarController presentInterstitialAdWithCompletionHandler:^{
-        [MeiziRequest requestWithPage:self.page+1 category:self.category success:^(NSArray<Meizi *> *meiziArray) {
-            [self.collectionView.mj_footer endRefreshing];
-            [self reloadDataWithMeiziArray:meiziArray emptyBeforeReload:NO];
-        } failure:^(NSString *message) {
-            [SVProgressHUD showErrorWithStatus:message];
-            [self.collectionView.mj_footer endRefreshing];
-        }];
+//    [tabBarController presentInterstitialAdWithCompletionHandler:^{
+//        [MeiziRequest requestWithPage:self.page+1 category:self.category success:^(NSArray<Meizi *> *meiziArray) {
+//            [self.collectionView.mj_footer endRefreshing];
+//            [self reloadDataWithMeiziArray:meiziArray emptyBeforeReload:NO];
+//        } failure:^(NSString *message) {
+//            [SVProgressHUD showErrorWithStatus:message];
+//            [self.collectionView.mj_footer endRefreshing];
+//        }];
+//    }];
+    [tabBarController presentInterstitialAd];
+    [MeiziRequest requestWithPage:self.page+1 category:self.category success:^(NSArray<Meizi *> *meiziArray) {
+        [self.collectionView.mj_footer endRefreshing];
+        [self reloadDataWithMeiziArray:meiziArray emptyBeforeReload:NO];
+    } failure:^(NSString *message) {
+        [SVProgressHUD showErrorWithStatus:message];
+        [self.collectionView.mj_footer endRefreshing];
     }];
 }
 

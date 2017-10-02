@@ -12,8 +12,6 @@
 
 @interface RootTabBarViewController ()<GADInterstitialDelegate>
 
-@property (nonatomic, strong) SYPhotoBrowser *photoBrowser;
-@property (nonatomic, assign) BOOL needToPresentPhotos;
 @property (nonatomic, copy) void (^handler)(void);
 
 @end
@@ -71,6 +69,11 @@
     NSLog(@"interstitialDidReceiveAd");
     if (self.interstitial.isReady && !self.presentedViewController) {
         [self.interstitial presentFromRootViewController:self];
+    } else {
+        if (self.handler) {
+            self.handler();
+            self.handler = nil;
+        }
     }
 }
 
@@ -78,6 +81,13 @@
 - (void)interstitial:(GADInterstitial *)ad
 didFailToReceiveAdWithError:(GADRequestError *)error {
     NSLog(@"interstitial:didFailToReceiveAdWithError: %@", [error localizedDescription]);
+    if (self.handler) {
+        self.handler();
+        self.handler = nil;
+    }
+}
+
+- (void)interstitialDidFailToPresentScreen:(GADInterstitial *)ad {
     if (self.handler) {
         self.handler();
         self.handler = nil;
@@ -97,12 +107,6 @@ didFailToReceiveAdWithError:(GADRequestError *)error {
 /// Tells the delegate the interstitial had been animated off the screen.
 - (void)interstitialDidDismissScreen:(GADInterstitial *)ad {
     NSLog(@"interstitialDidDismissScreen");
-    if (self.needToPresentPhotos && self.photoBrowser) {
-        [self presentViewController:self.photoBrowser animated:YES completion:^{
-            self.needToPresentPhotos = NO;
-            self.photoBrowser = nil;
-        }];
-    }
     if (self.handler) {
         self.handler();
         self.handler = nil;
@@ -124,9 +128,11 @@ didFailToReceiveAdWithError:(GADRequestError *)error {
     NSLog(@"setSelectedViewController");
     static NSInteger clickCount = 1;
     if (clickCount==1) {
-        [self presentInterstitialAdWithCompletionHandler:^{
-            [super setSelectedViewController:selectedViewController];
-        }];
+//        [self presentInterstitialAdWithCompletionHandler:^{
+//            [super setSelectedViewController:selectedViewController];
+//        }];
+        [super setSelectedViewController:selectedViewController];
+        [self presentInterstitialAd];
         clickCount=0;
     } else {
         clickCount++;
@@ -140,14 +146,6 @@ didFailToReceiveAdWithError:(GADRequestError *)error {
 
 - (void)presentViewController:(UIViewController *)viewControllerToPresent animated:(BOOL)flag completion:(void (^)(void))completion {
     [super presentViewController:viewControllerToPresent animated:flag completion:completion];
-
-//    if ([viewControllerToPresent isKindOfClass:[SYPhotoBrowser class]] && self.needToPresentPhotos==NO) {
-//        self.needToPresentPhotos = YES;
-//        self.photoBrowser = (SYPhotoBrowser *)viewControllerToPresent;
-//        [self presentInterstitialAd];
-//    } else {
-//        [super presentViewController:viewControllerToPresent animated:flag completion:completion];
-//    }
 }
 
 @end

@@ -148,15 +148,21 @@
 }
 
 - (IBAction)searchAction:(id)sender {
-    RootTabBarViewController *root = (RootTabBarViewController *)self.tabBarController;
-    [root presentInterstitialAdWithCompletionHandler:^{
-        if (self.textField.text.length<1) {
-            [self showHint:@"请输入搜索关键字"];
-        } else {
-            [self performSegueWithIdentifier:@"segue.show.ResultsTableViewController" sender:nil];
-            [self insertKeyword:self.textField.text];
-        }
-    }];
+//    RootTabBarViewController *root = (RootTabBarViewController *)self.tabBarController;
+//    [root presentInterstitialAdWithCompletionHandler:^{
+//        if (self.textField.text.length<1) {
+//            [self showHint:@"请输入搜索关键字"];
+//        } else {
+//            [self performSegueWithIdentifier:@"segue.show.ResultsTableViewController" sender:nil];
+//            [self insertKeyword:self.textField.text];
+//        }
+//    }];
+    if (self.textField.text.length<1) {
+        [self showHint:@"请输入搜索关键字"];
+    } else {
+        [self performSegueWithIdentifier:@"segue.show.ResultsTableViewController" sender:nil];
+        [self insertKeyword:self.textField.text];
+    }
 }
 - (IBAction)changeSiteAction:(id)sender {
     NSDictionary *sites = @{@"百度网盘":@"pan.baidu.com",
@@ -218,15 +224,21 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
-    RootTabBarViewController *root = (RootTabBarViewController *)self.tabBarController;
-    [root presentInterstitialAdWithCompletionHandler:^{
-        if (self.textField.text.length<1) {
-            [self showHint:@"请输入搜索关键字"];
-        } else {
-            [self performSegueWithIdentifier:@"segue.show.ResultsTableViewController" sender:nil];
-            [self insertKeyword:self.textField.text];
-        }
-    }];
+//    RootTabBarViewController *root = (RootTabBarViewController *)self.tabBarController;
+//    [root presentInterstitialAdWithCompletionHandler:^{
+//        if (self.textField.text.length<1) {
+//            [self showHint:@"请输入搜索关键字"];
+//        } else {
+//            [self performSegueWithIdentifier:@"segue.show.ResultsTableViewController" sender:nil];
+//            [self insertKeyword:self.textField.text];
+//        }
+//    }];
+    if (self.textField.text.length<1) {
+        [self showHint:@"请输入搜索关键字"];
+    } else {
+        [self performSegueWithIdentifier:@"segue.show.ResultsTableViewController" sender:nil];
+        [self insertKeyword:self.textField.text];
+    }
     return YES;
 }
 
@@ -245,9 +257,11 @@
     [self.textField resignFirstResponder];
     KeywordEntity *entity = self.historyArray[indexPath.item];
     RootTabBarViewController *root = (RootTabBarViewController *)self.tabBarController;
-    [root presentInterstitialAdWithCompletionHandler:^{
-        [self performSegueWithIdentifier:@"segue.show.ResultsTableViewController" sender:entity.value];
-    }];
+//    [root presentInterstitialAdWithCompletionHandler:^{
+//        [self performSegueWithIdentifier:@"segue.show.ResultsTableViewController" sender:entity.value];
+//    }];
+    [self performSegueWithIdentifier:@"segue.show.ResultsTableViewController" sender:entity.value];
+    [root presentInterstitialAd];
 }
 
 #pragma mark - UICollectionViewDataSource

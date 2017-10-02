@@ -178,10 +178,11 @@
     ResultModel *model = self.dataArray[indexPath.row];
     if (!model.isAD) {
         ResultModel *model = self.dataArray[indexPath.row];
-        RootTabBarViewController *root = (RootTabBarViewController *)self.tabBarController;
-        [root presentInterstitialAdWithCompletionHandler:^{
-            [self showWebControllerWithUrlString:model.url andTitle:model.title];
-        }];
+//        RootTabBarViewController *root = (RootTabBarViewController *)self.tabBarController;
+//        [root presentInterstitialAdWithCompletionHandler:^{
+//            [self showWebControllerWithUrlString:model.url andTitle:model.title];
+//        }];
+        [self showWebControllerWithUrlString:model.url andTitle:model.title];
     }
 }
 
