@@ -13,11 +13,12 @@
 #import "ResultsTableViewController.h"
 #import "RootTabBarViewController.h"
 
-@interface WebViewController ()
+@interface WebViewController ()<GADBannerViewDelegate>
 
 @property (nonatomic, strong) WKWebView *webView;
 
 @property (weak, nonatomic) IBOutlet GADBannerView *bannerView;
+@property (nonatomic, assign) BOOL didReceiveAd;
 
 @end
 
@@ -25,7 +26,6 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.bannerView loadADWithRootViewController:self];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -39,8 +39,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.bannerView.adSize = kGADAdSizeBanner;
+    [self.bannerView loadADWithRootViewController:self];
+    self.bannerView.delegate = self;
+    
     [self layoutAction];
-    [self.view bringSubviewToFront:self.bannerView];
     
     if (self.urlString.length>0) {
         NSURL *url = [NSURL URLWithString:self.urlString];
@@ -67,8 +70,15 @@
     [self.view addConstraints:constraitsH];
     [self.view addConstraints:constraitsV];
     
+    self.webView.scrollView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    self.webView.scrollView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 0, 0);
+}
+
+- (void)adViewDidReceiveAd:(GADBannerView *)bannerView {
+    self.didReceiveAd = YES;
     self.webView.scrollView.contentInset = UIEdgeInsetsMake(0, 0, 66, 0);
     self.webView.scrollView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 66, 0);
+    [self.view bringSubviewToFront:self.bannerView];
 }
 
 - (void)didReceiveMemoryWarning {

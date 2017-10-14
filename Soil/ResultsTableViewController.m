@@ -18,11 +18,13 @@
 #import "UserDefaults.h"
 #import "RootTabBarViewController.h"
 
-@interface ResultsTableViewController ()
+@interface ResultsTableViewController ()<GADBannerViewDelegate>
 
 @property (nonatomic, strong) NSMutableArray *dataArray;
 @property (nonatomic, assign) NSInteger pageIndex;
 @property (nonatomic, assign) BOOL hasShowRate;
+@property (nonatomic, strong) GADBannerView *bannerView;
+@property (nonatomic, assign) BOOL didReceiveAd;
 
 @end
 
@@ -197,7 +199,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return 66;
+    return self.didReceiveAd?66:CGFLOAT_MIN;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
@@ -208,6 +210,8 @@
     
     if (![view viewWithTag:100]) {
         GADBannerView *bannerView = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
+        self.bannerView = bannerView;
+        self.bannerView.delegate = self;
         bannerView.tag = 100;
         [view addSubview:bannerView];
         bannerView.translatesAutoresizingMaskIntoConstraints = NO;
@@ -215,8 +219,8 @@
         [view addConstraint:[NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:bannerView attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0]];
         [bannerView loadADWithRootViewController:self];
     } else {
-        GADBannerView *bannerView = [view viewWithTag:100];
-        [bannerView loadADWithRootViewController:self];
+//        GADBannerView *bannerView = [view viewWithTag:100];
+//        [bannerView loadADWithRootViewController:self];
     }
     
     return view;
@@ -244,12 +248,12 @@
             model.isAD = NO;
             model.showInterstitial = YES;
             [self.dataArray addObject:model];
-            if (idx==4 || idx==9) {
-                ResultModel *adModel = [[ResultModel alloc] init];
-                adModel.isAD = YES;
-                adModel.showInterstitial = YES;
-                [self.dataArray addObject:adModel];
-            }
+//            if (idx==4 || idx==9) {
+//                ResultModel *adModel = [[ResultModel alloc] init];
+//                adModel.isAD = YES;
+//                adModel.showInterstitial = YES;
+//                [self.dataArray addObject:adModel];
+//            }
         }];
         [self.tableView reloadData];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -267,6 +271,13 @@
     if ([app canOpenURL:url]) {
         [app openURL:url];
     }
+}
+
+#pragma mark -
+
+- (void)adViewDidReceiveAd:(GADBannerView *)bannerView {
+    self.didReceiveAd = YES;
+    [self.tableView reloadData];
 }
 
 @end

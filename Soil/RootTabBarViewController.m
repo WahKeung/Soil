@@ -26,17 +26,28 @@
 - (void)presentInterstitialAdFirstIfReadyWithCompletionHandler:(void (^)(void))handler {
     UserDefaults *user = [UserDefaults userDefault];
     if (user.showInterstitial) {
-        if (handler) {
-            self.handler = handler;
-        }
-        if (self.interstitial.isReady) {
-            [self.interstitial presentFromRootViewController:self];
+        if (self.interstitial) {
+            if (self.interstitial.isReady) {
+                if (handler) {
+                    self.handler = handler;
+                }
+                [self.interstitial presentFromRootViewController:self];
+            } else {
+                NSLog(@"Ad wasn't ready");
+                if (handler) {
+                    handler();
+                }
+            };
         } else {
-            NSLog(@"Ad wasn't ready");
-            handler();
-        };
+            self.interstitial = [self createAndLoadInterstitial];
+            if (handler) {
+                handler();
+            }
+        }
     } else {
-        handler();
+        if (handler) {
+            handler();
+        }
     }
 }
 
@@ -67,6 +78,7 @@
 - (void)interstitial:(GADInterstitial *)ad
 didFailToReceiveAdWithError:(GADRequestError *)error {
     NSLog(@"interstitial:didFailToReceiveAdWithError: %@", [error localizedDescription]);
+    self.interstitial = nil;
     if (self.handler) {
         self.handler();
         self.handler = nil;
