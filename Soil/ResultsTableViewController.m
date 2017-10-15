@@ -54,7 +54,7 @@
     [super viewDidAppear:animated];
     
     UserDefaults *user = [UserDefaults userDefault];
-    if (user.showRate) { // && !user.hasShowRate
+    if (user.showRate && !user.clickOnRate) { // && !user.hasShowRate
         [self showRate];
         user.hasShowRate = YES;
     } else {
@@ -66,6 +66,7 @@
 }
 
 - (void)showRate {
+    
     if (self.hasShowRate) {
         return;
     }
@@ -77,6 +78,8 @@
     }];
     UIAlertAction *openAppStoreAction = [UIAlertAction actionWithTitle:@"好评赞赏👍" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [self jumpToAppStore];
+        UserDefaults *user = [UserDefaults userDefault];
+        user.clickOnRate = YES;
         
         UIWindow *window = [UIApplication sharedApplication].delegate.window;
         RootTabBarViewController *root = (RootTabBarViewController *)window.rootViewController;

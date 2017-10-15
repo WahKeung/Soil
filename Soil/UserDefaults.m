@@ -52,4 +52,12 @@
     [[NSUserDefaults standardUserDefaults] setBool:showInterstitial forKey:@"showInterstitial"];
 }
 
+- (BOOL)clickOnRate {
+    return [[NSUserDefaults standardUserDefaults] boolForKey:@"clickOnRate"];
+}
+
+- (void)setClickOnRate:(BOOL)clickOnRate {
+    [[NSUserDefaults standardUserDefaults] setBool:clickOnRate forKey:@"clickOnRate"];
+}
+
 @end
